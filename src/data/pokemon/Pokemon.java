@@ -1,4 +1,4 @@
-package basico;
+package data.pokemon;
 
 public class Pokemon {
     private int number;

@@ -1,4 +1,6 @@
-package basico;
+package data.gymLeader;
+
+import abstracts.Coach;
 
 /**
  * Created by mario on 21/11/16.

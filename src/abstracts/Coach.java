@@ -1,4 +1,4 @@
-package basico;
+package abstracts;
 
 /**
  * Created by mario on 21/11/16.
