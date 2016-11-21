@@ -12,16 +12,5 @@ public class trainerRepositoryArray {
         this.index = 0;
     }
 
-    public Trainer[] getTrainerArray() {
-        return this.trainerArray;
-    }
-
-    public void doubleArray(Trainer[] trainer) {
-
-    }
-
-    public void addTrainerArray(Trainer trainer) {
-
-    }
 
 }
