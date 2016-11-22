@@ -1,16 +1,16 @@
 package data.trainerrepository;
 
-import negocio.Coach;
+import negocio.Trainer;
 
 /**
  * Created by mario on 21/11/16.
  */
-public class coachRepositoryArray {
-    private Coach[] coachArray = new Coach[0];
+public class TrainerRepositoryArray {
+    private Trainer[] coachArray = new Trainer[0];
 
     //  Insere um novo coach na array
-    public void insert(Coach coach) {
-        Coach[] aux = new Coach[this.coachArray.length + 1];
+    public void insert(Trainer coach) {
+        Trainer[] aux = new Trainer[this.coachArray.length + 1];
         for (int i = 0; i < this.coachArray.length; i++) {
             aux[i] = this.coachArray[i];
         }
@@ -54,7 +54,7 @@ public class coachRepositoryArray {
             for (int i = 0; i < coachArray.length; i++) {
                 if (name.equals(coachArray[i].getName())) {
                     coachArray[i] = coachArray[coachArray.length - 1];
-                    Coach[] aux = new Coach[coachArray.length - 1];
+                    Trainer[] aux = new Trainer[coachArray.length - 1];
                     for (int j = 0; j < coachArray.length - 1; j++) {
                         aux[i] = coachArray[i];
                     }
