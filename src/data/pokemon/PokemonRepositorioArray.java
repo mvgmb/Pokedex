@@ -1,15 +1,9 @@
 package data.pokemon;
-<<<<<<<Updated upstream
 
 import interfaces.PokemonRepositorio;
 import negocio.Pokemon;
 
 public class PokemonRepositorioArray implements PokemonRepositorio
-=======
-        import negocio.*;
-
-public class PokemonRepositorioArray
->>>>>>>Stashed changes
 {
     private Pokemon[] array = new Pokemon[0];
 
