@@ -6,11 +6,11 @@ import negocio.trainer.Trainer;
 /**
  * Created by mario on 21/11/16.
  */
-public class TrainerRepositotyList implements TrainerRepository {
+public class TrainerRepositoryList implements TrainerRepository {
     private Trainer trainer;
-    private TrainerRepositotyList next;
+    private TrainerRepositoryList next;
 
-    public TrainerRepositotyList() {
+    public TrainerRepositoryList() {
         this.trainer = null;
         this.next = null;
     }
@@ -21,7 +21,7 @@ public class TrainerRepositotyList implements TrainerRepository {
         if (this.next == null) {
             this.trainer.setName(trainer.getName());
             this.trainer.setBadge(trainer.getBadge());
-            this.next = new TrainerRepositotyList();
+            this.next = new TrainerRepositoryList();
         } else insert(trainer);
     }
 
@@ -49,9 +49,9 @@ public class TrainerRepositotyList implements TrainerRepository {
 
     //  Atualiza o valor da quantidade de badges de um treinador
     @Override
-    public void update(Trainer trainer){
-        if (exist(trainer.getName())){
-            if (trainer.getName().equals(this.trainer.getName())){
+    public void update(Trainer trainer) {
+        if (exist(trainer.getName())) {
+            if (trainer.getName().equals(this.trainer.getName())) {
                 this.trainer.setBadge(trainer.getBadge());
             }
         }
@@ -59,9 +59,9 @@ public class TrainerRepositotyList implements TrainerRepository {
 
     //  Remove o objeto treinador
     @Override
-    public void remove(String name){
-        if (exist(name)){
-            if (name.equals(this.next.trainer.getName())){
+    public void remove(String name) {
+        if (exist(name)) {
+            if (name.equals(this.next.trainer.getName())) {
                 this.next = this.next.next;
             }
         }
