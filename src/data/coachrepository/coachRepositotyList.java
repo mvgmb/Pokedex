@@ -1,4 +1,4 @@
-package data.coachRepository;
+package data.coachrepository;
 
 /**
  * Created by mario on 21/11/16.
