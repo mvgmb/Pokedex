@@ -13,6 +13,15 @@ public class PokemonRepositorioList implements PokemonRepositorio
         this.pokemon = null;
     }
 
+    public boolean exist(Pokemon pokemon) {
+        if (this.pokemon == pokemon)
+            return true;
+        else if (this.node == null)
+            throw new RuntimeException("Não existe");
+        else
+            return this.node.exist(pokemon);
+    }
+
     public void insert(Pokemon pokemon)
     {
         if (this.node == null)

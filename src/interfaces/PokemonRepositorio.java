@@ -10,4 +10,6 @@ public interface PokemonRepositorio {
     public Pokemon search(int pokemon);
 
     public void update(Pokemon pokemon);
+
+    public boolean exist(Pokemon pokemon);
 }

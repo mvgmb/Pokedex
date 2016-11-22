@@ -7,6 +7,14 @@ public class PokemonRepositorioArray implements PokemonRepositorio
 {
     private Pokemon[] array = new Pokemon[0];
 
+    public boolean exist(Pokemon pokemon) {
+        boolean exists = false;
+        for (int i = 0; i < array.length; i++)
+            if (array[i] == pokemon)
+                return true;
+        return exists;
+    }
+
     // inserir um pokemon no array
     public void insert(Pokemon pokemon)
     {
@@ -41,10 +49,8 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     public Pokemon search(int pokemon)
     {
         for (int i = 0; i < array.length; i++)
-        {
             if (array[i].getNumber() == pokemon)
                 return array[i];
-        }
         return null;
     }
 }
