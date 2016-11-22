@@ -3,6 +3,7 @@ package negocio.pokemon;
 import data.pokemon.PokemonRepositorioArray;
 import data.pokemon.PokemonRepositorioList;
 import exceptions.PokemonExistenteException;
+import exceptions.PokemonInexistenteException;
 import exceptions.RepositorioInvalidoException;
 import exceptions.TipoInvalidoException;
 import interfaces.PokemonRepositorio;
@@ -37,5 +38,27 @@ public class PokemonNegocios {
             throw new PokemonExistenteException();
     }
 
+    public void remove(Pokemon pokemon) throws PokemonInexistenteException
+    {
+        if (!exist(pokemon))
+            pokemonRepositorio.remove(pokemon);
+        else
+            throw new PokemonInexistenteException();
+    }
 
+    public Pokemon search(Pokemon pokemon) throws PokemonInexistenteException
+    {
+        if (!exist(pokemon))
+           return pokemonRepositorio.search(pokemon);
+        else
+            throw new PokemonInexistenteException();
+    }
+
+    public void update(Pokemon pokemon) throws PokemonInexistenteException
+    {
+        if (!exist(pokemon))
+            pokemonRepositorio.update(pokemon);
+        else
+            throw new PokemonInexistenteException();
+    }
 }

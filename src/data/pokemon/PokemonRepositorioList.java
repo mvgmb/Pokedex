@@ -33,9 +33,9 @@ public class PokemonRepositorioList implements PokemonRepositorio
             this.node.insert(pokemon);
     }
 
-    public void remove(int pokemon) {
+    public void remove(Pokemon pokemon) {
         if (this.pokemon != null) {
-            if (this.pokemon.getNumber() == pokemon) {
+            if (this.pokemon.getNumber() == pokemon.getNumber()) {
                 this.pokemon = this.node.pokemon;
                 this.node = this.node.node;
             } else
@@ -43,8 +43,8 @@ public class PokemonRepositorioList implements PokemonRepositorio
         }
     }
 
-    public Pokemon search(int pokemon) {
-        if (this.pokemon.getNumber() == pokemon)
+    public Pokemon search(Pokemon pokemon) {
+        if (this.pokemon.getNumber() == pokemon.getNumber())
             return this.pokemon;
         else if (this.node == null) {
             return null;

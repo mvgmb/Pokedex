@@ -25,11 +25,11 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     }
 
     // remover um pokemon no array
-    public void remove(int number)
+    public void remove(Pokemon number)
     {
         Pokemon[] aux = new Pokemon[array.length - 1];
         for (int i = 0; i < array.length; i++)
-            if (array[i].getNumber() == number)
+            if (array[i].getNumber() == number.getNumber())
                 array[i] = array[array.length - 1];
         for (int i = 0; i < (array.length - 1); i++)
             aux[i] = array[i];
@@ -45,10 +45,10 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     }
 
     // procurar um pokemon no array
-    public Pokemon search(int pokemon)
+    public Pokemon search(Pokemon pokemon)
     {
         for (int i = 0; i < array.length; i++)
-            if (array[i].getNumber() == pokemon)
+            if (array[i].getNumber() == pokemon.getNumber())
                 return array[i];
         return null;
     }
