@@ -29,13 +29,13 @@ public class TrainerRepositoryArray implements TrainerRepository{
     }
 
     //  Procura se o coach existe, caso exista, retorna a quantidade de badges
-    public int search(String name) {
+    public Trainer search(String name) {
         for (int i = 0; i < trainerArray.length; i++) {
             if (exist(name)) {
-                return trainerArray[i].getBadge();
+                return trainerArray[i];
             }
         }
-        throw new RuntimeException("Treinador não encontrado");
+        return null;
     }
 
     //  Atualiza a quatidade de badges de um treinador, caso ele exista
@@ -45,8 +45,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
                 if (trainer.getName().equals(trainerArray[i].getName()))
                     trainerArray[i].setBadge(trainer.getBadge());
             }
-            System.out.println("Treinador atualizado com sucesso!");
-        } else throw new RuntimeException("Treinador não encontrado");
+        }
     }
 
     //  Remove o objeto treinador, caso ele exista
@@ -62,8 +61,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
                     trainerArray = aux;
                 }
             }
-            System.out.println("Treinador removido com sucesso");
-        } else throw new RuntimeException("Treinador não encontrado");
+        }
     }
 
 }
