@@ -1,4 +1,4 @@
-package data.coachrepository;
+package data.trainerrepository;
 
 import negocio.Coach;
 
