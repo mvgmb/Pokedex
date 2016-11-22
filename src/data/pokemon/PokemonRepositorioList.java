@@ -1,7 +1,7 @@
 package data.pokemon;
 
 import interfaces.PokemonRepositorio;
-import negocio.Pokemon;
+import negocio.pokemon.Pokemon;
 public class PokemonRepositorioList implements PokemonRepositorio
 {
     private PokemonRepositorioList node;

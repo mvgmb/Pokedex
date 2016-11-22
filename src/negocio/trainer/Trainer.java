@@ -1,4 +1,4 @@
-package negocio;
+package negocio.trainer;
 
 /**
  * Created by mario on 21/11/16.

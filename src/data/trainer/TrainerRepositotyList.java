@@ -1,7 +1,7 @@
 package data.trainer;
 
 import interfaces.TrainerRepository;
-import negocio.Trainer;
+import negocio.trainer.Trainer;
 
 /**
  * Created by mario on 21/11/16.

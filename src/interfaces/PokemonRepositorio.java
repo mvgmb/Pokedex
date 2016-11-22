@@ -1,6 +1,6 @@
 package interfaces;
 
-import negocio.Pokemon;
+import negocio.pokemon.Pokemon;
 
 public interface PokemonRepositorio {
     public void insert(Pokemon pokemon);

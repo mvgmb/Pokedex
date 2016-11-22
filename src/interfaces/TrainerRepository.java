@@ -1,6 +1,6 @@
 package interfaces;
 
-import negocio.Trainer;
+import negocio.trainer.Trainer;
 
 /**
  * Created by mario on 22/11/16.

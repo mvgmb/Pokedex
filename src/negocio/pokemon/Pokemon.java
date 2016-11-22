@@ -1,4 +1,4 @@
-package negocio;
+package negocio.pokemon;
 
 public class Pokemon {
     private int number;
