@@ -1,5 +1,7 @@
 package data.trainer;
 
+import classesprimarias.Trainer;
+
 /**
  * Created by mario on 21/11/16.
  */

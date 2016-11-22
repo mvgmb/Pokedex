@@ -10,7 +10,4 @@ public abstract class Coach {
         this.name = name;
     }
 
-    public abstract String getName();
-
-    public abstract void setName(String name);
 }

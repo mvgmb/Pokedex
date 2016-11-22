@@ -1,4 +1,4 @@
-package data.gymLeader;
+package classesprimarias;
 
 import abstracts.Coach;
 

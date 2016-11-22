@@ -1,4 +1,4 @@
-package data.gymLeader;
+package data.gymleader;
 
 /**
  * Created by mario on 21/11/16.

@@ -1,4 +1,4 @@
-package data.trainer;
+package classesprimarias;
 
 import abstracts.Coach;
 

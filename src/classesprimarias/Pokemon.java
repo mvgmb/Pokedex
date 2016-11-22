@@ -1,4 +1,4 @@
-package data.pokemon;
+package classesprimarias;
 
 public class Pokemon {
     private int number;
