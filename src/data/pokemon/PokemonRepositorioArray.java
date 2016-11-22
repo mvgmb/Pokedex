@@ -1,5 +1,6 @@
 package data.pokemon;
-import negocio.*;
+
+import negocio.Pokemon;
 public class PokemonRepositorioArray
 {
     private Pokemon[] array = new Pokemon[0];
@@ -44,5 +45,4 @@ public class PokemonRepositorioArray
         }
         return null;
     }
-
 }

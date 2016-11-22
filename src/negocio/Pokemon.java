@@ -28,4 +28,8 @@ public class Pokemon {
     public void setType(String type) {
         this.type = type;
     }
+
+    public boolean equals(Pokemon pokemon) {
+        return this.number == pokemon.number;
+    }
 }
