@@ -1,7 +1,9 @@
 package data.pokemon;
 
+import interfaces.PokemonRepositorio;
 import negocio.Pokemon;
-public class PokemonRepositorioList
+
+public class PokemonRepositorioList implements PokemonRepositorio
 {
     private PokemonRepositorioList node;
     private Pokemon pokemon;
@@ -23,9 +25,9 @@ public class PokemonRepositorioList
             this.node.insert(pokemon);
     }
 
-    public void remove(Pokemon pokemon) {
+    public void remove(int pokemon) {
         if (this.pokemon != null) {
-            if (this.pokemon.getNumber() == pokemon.getNumber()) {
+            if (this.pokemon.getNumber() == pokemon) {
                 this.pokemon = this.node.pokemon;
                 this.node = this.node.node;
             } else
@@ -38,7 +40,7 @@ public class PokemonRepositorioList
         if (this.pokemon.getNumber() == pokemon)
             return this.pokemon;
         else if (this.node == null) {
-            throw new RuntimeException("Pokemon não encontrado");
+            throw new RuntimeException("PokemonRepositorio não encontrado");
         } else
             return this.node.search(pokemon);
     }
@@ -47,7 +49,7 @@ public class PokemonRepositorioList
         if (this.pokemon.equals(pokemon))
             this.pokemon = pokemon;
         else if (this.node == null)
-            throw new RuntimeException("Pokemon não encontrado");
+            throw new RuntimeException("PokemonRepositorio não encontrado");
         else
             this.node.update(pokemon);
     }
