@@ -1,11 +1,12 @@
 package data.trainer;
 
+import interfaces.TrainerRepository;
 import negocio.Trainer;
 
 /**
  * Created by mario on 21/11/16.
  */
-public class TrainerRepositotyList {
+public class TrainerRepositotyList implements TrainerRepository{
     private Trainer trainer;
     private TrainerRepositotyList next;
 
@@ -14,16 +15,16 @@ public class TrainerRepositotyList {
         this.next = null;
     }
     //  Insere um novo objeto no final da lista
-    public void insert(String name, int badge){
+    public void insert(Trainer trainer){
         if (this.next == null){
-            this.trainer.setName(name);
-            this.trainer.setBadge(badge);
+            this.trainer.setName(trainer.getName());
+            this.trainer.setBadge(trainer.getBadge());
             this.next = new TrainerRepositotyList();
         }
-        else insert(name, badge);
+        else insert(trainer);
     }
     //  Metodo auxiliar, checa se o nome existe
-    private boolean exist(String name){
+    public boolean exist(String name){
         if (name.equals(trainer.getName()))
             return true;
         else if (this.next == null)
@@ -41,10 +42,10 @@ public class TrainerRepositotyList {
         else throw new RuntimeException("Treinador não encontrado");
     }
     //  Atualiza o valor da quantidade de badges de um treinador
-    public void update(String name, int badge){
-        if (exist(name)){
-            if (name.equals(this.trainer.getName())){
-                this.trainer.setBadge(badge);
+    public void update(Trainer trainer){
+        if (exist(trainer.getName())){
+            if (trainer.getName().equals(this.trainer.getName())){
+                this.trainer.setBadge(trainer.getBadge());
             }
         }
         else throw new RuntimeException("Treinador não encontrado");

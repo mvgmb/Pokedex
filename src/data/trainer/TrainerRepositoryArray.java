@@ -1,27 +1,28 @@
 package data.trainer;
 
+import interfaces.TrainerRepository;
 import negocio.Trainer;
 
 /**
  * Created by mario on 21/11/16.
  */
-public class TrainerRepositoryArray {
-    private Trainer[] coachArray = new Trainer[0];
+public class TrainerRepositoryArray implements TrainerRepository{
+    private Trainer[] trainerArray = new Trainer[0];
 
     //  Insere um novo coach na array
     public void insert(Trainer coach) {
-        Trainer[] aux = new Trainer[this.coachArray.length + 1];
-        for (int i = 0; i < this.coachArray.length; i++) {
-            aux[i] = this.coachArray[i];
+        Trainer[] aux = new Trainer[this.trainerArray.length + 1];
+        for (int i = 0; i < this.trainerArray.length; i++) {
+            aux[i] = this.trainerArray[i];
         }
-        aux[this.coachArray.length + 1] = coach;
-        this.coachArray = aux;
+        aux[this.trainerArray.length + 1] = coach;
+        this.trainerArray = aux;
     }
 
     //  Metodo auxiliar de Procurar, checa se o nome existe
-    private boolean exist(String name) {
-        for (int i = 0; i < this.coachArray.length; i++) {
-            if (name.equals(this.coachArray[i].getName()))
+    public boolean exist(String name) {
+        for (int i = 0; i < this.trainerArray.length; i++) {
+            if (name.equals(this.trainerArray[i].getName()))
                 return true;
         }
         return false;
@@ -29,20 +30,20 @@ public class TrainerRepositoryArray {
 
     //  Procura se o coach existe, caso exista, retorna a quantidade de badges
     public int search(String name) {
-        for (int i = 0; i < coachArray.length; i++) {
+        for (int i = 0; i < trainerArray.length; i++) {
             if (exist(name)) {
-                return coachArray[i].getBadge();
+                return trainerArray[i].getBadge();
             }
         }
         throw new RuntimeException("Treinador não encontrado");
     }
 
     //  Atualiza a quatidade de badges de um treinador, caso ele exista
-    public void update(String name, int badge) {
-        if (exist(name)) {
-            for (int i = 0; i < coachArray.length; i++) {
-                if (name.equals(coachArray[i].getName()))
-                    coachArray[i].setBadge(badge);
+    public void update(Trainer trainer) {
+        if (exist(trainer.getName())) {
+            for (int i = 0; i < trainerArray.length; i++) {
+                if (trainer.getName().equals(trainerArray[i].getName()))
+                    trainerArray[i].setBadge(trainer.getBadge());
             }
             System.out.println("Treinador atualizado com sucesso!");
         } else throw new RuntimeException("Treinador não encontrado");
@@ -51,14 +52,14 @@ public class TrainerRepositoryArray {
     //  Remove o objeto treinador, caso ele exista
     public void remove(String name) {
         if (exist(name)) {
-            for (int i = 0; i < coachArray.length; i++) {
-                if (name.equals(coachArray[i].getName())) {
-                    coachArray[i] = coachArray[coachArray.length - 1];
-                    Trainer[] aux = new Trainer[coachArray.length - 1];
-                    for (int j = 0; j < coachArray.length - 1; j++) {
-                        aux[i] = coachArray[i];
+            for (int i = 0; i < trainerArray.length; i++) {
+                if (name.equals(trainerArray[i].getName())) {
+                    trainerArray[i] = trainerArray[trainerArray.length - 1];
+                    Trainer[] aux = new Trainer[trainerArray.length - 1];
+                    for (int j = 0; j < trainerArray.length - 1; j++) {
+                        aux[i] = trainerArray[i];
                     }
-                    coachArray = aux;
+                    trainerArray = aux;
                 }
             }
             System.out.println("Treinador removido com sucesso");
