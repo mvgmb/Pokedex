@@ -4,6 +4,7 @@ import data.trainer.TrainerRepositoryArray;
 import data.trainer.TrainerRepositoryList;
 import exceptions.RepositorioInvalidoException;
 import exceptions.TrainerExistenteException;
+import exceptions.TrainerInexistenteException;
 import interfaces.TrainerRepository;
 
 /**
@@ -27,16 +28,39 @@ public class TrainerNegocios {
     }
 
     //  Checa se o objeto existe, caso sim , retorna true
-    public boolean exists(String nome) {
+    public boolean exist(String nome) {
         return trainerRepository.exist(nome);
     }
 
-    //
+    // Insere um novo objeto, caso ele na não exista
     public void insert(Trainer trainer) throws TrainerExistenteException {
-        if (!exists(trainer.getName())) {
-            trainerRepository.insert(trainer.getName());
+        if (!exist(trainer.getName())) {
+            trainerRepository.insert(trainer);
         } else
             throw new TrainerExistenteException();
+    }
 
+    //  Procura um objeto pelo nome e retorna a quantidade de badges, caso ele exista
+    public Trainer search(String name) throws TrainerInexistenteException {
+        if (exist(name)) {
+            return trainerRepository.search(name);
+        } else
+            throw new TrainerInexistenteException();
+    }
+
+    //  Atualiza um objeto, caso ele exista
+    public void update(Trainer trainer) throws TrainerInexistenteException {
+        if (exist(trainer.getName())) {
+            trainerRepository.update(trainer);
+        } else
+            throw new TrainerInexistenteException();
+    }
+
+    //  Remove um objeto caso ele exista
+    public void remove(String name) throws TrainerInexistenteException {
+        if (exist(name)) {
+            trainerRepository.remove(name);
+        } else
+            throw new TrainerInexistenteException();
     }
 }
