@@ -8,11 +8,10 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     private Pokemon[] array = new Pokemon[0];
 
     public boolean exist(Pokemon pokemon) {
-        boolean exists = false;
         for (int i = 0; i < array.length; i++)
             if (array[i] == pokemon)
                 return true;
-        return exists;
+        return false;
     }
 
     // inserir um pokemon no array

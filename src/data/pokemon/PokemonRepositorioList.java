@@ -14,10 +14,10 @@ public class PokemonRepositorioList implements PokemonRepositorio
     }
 
     public boolean exist(Pokemon pokemon) {
-        if (this.pokemon == pokemon)
+        if (this.pokemon.equals(pokemon))
             return true;
         else if (this.node == null)
-            throw new RuntimeException("Não existe");
+            return false;
         else
             return this.node.exist(pokemon);
     }
@@ -40,15 +40,14 @@ public class PokemonRepositorioList implements PokemonRepositorio
                 this.node = this.node.node;
             } else
                 this.node.remove(pokemon);
-        } else
-            throw new RuntimeException("Esse pokemon ainda não foi inserido");
+        }
     }
 
     public Pokemon search(int pokemon) {
         if (this.pokemon.getNumber() == pokemon)
             return this.pokemon;
         else if (this.node == null) {
-            throw new RuntimeException("PokemonRepositorio não encontrado");
+            return null;
         } else
             return this.node.search(pokemon);
     }
@@ -56,8 +55,6 @@ public class PokemonRepositorioList implements PokemonRepositorio
     public void update(Pokemon pokemon) {
         if (this.pokemon.equals(pokemon))
             this.pokemon = pokemon;
-        else if (this.node == null)
-            throw new RuntimeException("PokemonRepositorio não encontrado");
         else
             this.node.update(pokemon);
     }
