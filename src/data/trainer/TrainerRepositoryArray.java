@@ -10,6 +10,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
     private Trainer[] trainerArray = new Trainer[0];
 
     //  Insere um novo coach na array
+    @Override
     public void insert(Trainer coach) {
         Trainer[] aux = new Trainer[this.trainerArray.length + 1];
         for (int i = 0; i < this.trainerArray.length; i++) {
@@ -20,6 +21,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
     }
 
     //  Metodo auxiliar de Procurar, checa se o nome existe
+    @Override
     public boolean exist(String name) {
         for (int i = 0; i < this.trainerArray.length; i++) {
             if (name.equals(this.trainerArray[i].getName()))
@@ -29,6 +31,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
     }
 
     //  Procura se o coach existe, caso exista, retorna a quantidade de badges
+    @Override
     public Trainer search(String name) {
         for (int i = 0; i < trainerArray.length; i++) {
             if (exist(name)) {
@@ -39,6 +42,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
     }
 
     //  Atualiza a quatidade de badges de um treinador, caso ele exista
+    @Override
     public void update(Trainer trainer) {
         if (exist(trainer.getName())) {
             for (int i = 0; i < trainerArray.length; i++) {
@@ -49,6 +53,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
     }
 
     //  Remove o objeto treinador, caso ele exista
+    @Override
     public void remove(String name) {
         if (exist(name)) {
             for (int i = 0; i < trainerArray.length; i++) {

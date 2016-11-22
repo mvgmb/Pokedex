@@ -16,6 +16,7 @@ public class TrainerRepositotyList implements TrainerRepository {
     }
 
     //  Insere um novo objeto no final da lista
+    @Override
     public void insert(Trainer trainer) {
         if (this.next == null) {
             this.trainer.setName(trainer.getName());
@@ -25,6 +26,7 @@ public class TrainerRepositotyList implements TrainerRepository {
     }
 
     //  Metodo auxiliar, checa se o nome existe
+    @Override
     public boolean exist(String name) {
         if (name.equals(trainer.getName()))
             return true;
@@ -35,6 +37,7 @@ public class TrainerRepositotyList implements TrainerRepository {
     }
 
     //  Procura o treinador pelo nome e retorna a quatidade de badges
+    @Override
     public Trainer search(String name) {
         if (exist(name)) {
             if (name.equals(this.trainer.getName()))
@@ -45,6 +48,7 @@ public class TrainerRepositotyList implements TrainerRepository {
     }
 
     //  Atualiza o valor da quantidade de badges de um treinador
+    @Override
     public void update(Trainer trainer){
         if (exist(trainer.getName())){
             if (trainer.getName().equals(this.trainer.getName())){
@@ -54,6 +58,7 @@ public class TrainerRepositotyList implements TrainerRepository {
     }
 
     //  Remove o objeto treinador
+    @Override
     public void remove(String name){
         if (exist(name)){
             if (name.equals(this.next.trainer.getName())){
