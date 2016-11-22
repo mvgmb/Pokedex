@@ -1,6 +1,6 @@
-package Interfaces;
+package interfaces;
 
-import negocio.Attack;
+import negocio.attack.Attack;
 
 public interface AttackRepository {
 	
