@@ -1,7 +1,7 @@
-package Attack;
+package data.attack;
 
 import interfaces.AttackRepository;
-import negocio.Attack;
+import negocio.attack.Attack;
 
 public class AttackRepositoryList implements AttackRepository{
 	

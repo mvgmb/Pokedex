@@ -3,9 +3,6 @@ package data.attack;
 import interfaces.AttackRepository;
 import negocio.attack.Attack;
 
-/**
- * Created by mathe on 22/11/2016.
- */
 public class AttackRepositoryArray implements AttackRepository {
     private Attack[] array;
 
