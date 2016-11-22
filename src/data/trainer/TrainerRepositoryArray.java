@@ -1,6 +1,6 @@
 package data.trainer;
 
-import classesprimarias.Trainer;
+import negocio.Trainer;
 
 /**
  * Created by mario on 21/11/16.

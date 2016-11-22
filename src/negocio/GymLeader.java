@@ -1,4 +1,4 @@
-package classesprimarias;
+package negocio;
 
 import abstracts.Coach;
 

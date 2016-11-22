@@ -1,4 +1,4 @@
-package classesprimarias;
+package negocio;
 
 public class Pokemon {
     private int number;

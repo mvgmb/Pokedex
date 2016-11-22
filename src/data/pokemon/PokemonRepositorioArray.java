@@ -1,9 +1,10 @@
 package data.pokemon;
-import classesprimarias.*;
+import negocio.*;
 public class PokemonRepositorioArray
 {
     private Pokemon[] array = new Pokemon[0];
 
+    // inserir um pokemon no array
     public void insert(Pokemon pokemon)
     {
         Pokemon[] aux = new Pokemon[array.length + 1];
@@ -13,6 +14,7 @@ public class PokemonRepositorioArray
         array = aux;
     }
 
+    // remover um pokemon no array
     public void remove(Pokemon number)
     {
         Pokemon[] aux = new Pokemon[array.length - 1];
@@ -24,15 +26,15 @@ public class PokemonRepositorioArray
         this.array = aux;
     }
 
+    // atualizar um pokemon no array
     public void update(Pokemon pokemon)
     {
         for (int i = 0; i < array.length; i++)
             if (array[i].getNumber() == pokemon.getNumber())
-            {
                 array[i] = pokemon;
-                return;
-            }
     }
+
+    // procurar um pokemon no array
     public Pokemon search(Pokemon pokemon)
     {
         for (int i = 0; i < array.length; i++)
@@ -41,10 +43,6 @@ public class PokemonRepositorioArray
                 return array[i];
         }
         return null;
-    }
-    public boolean findet(Pokemon pokemon)
-    {
-        return search(pokemon) != null;
     }
 
 }
