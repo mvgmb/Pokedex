@@ -13,11 +13,11 @@ public class PokemonRepositorioArray
         array = aux;
     }
 
-    public void remove(Pokemon pokemon)
+    public void remove(Pokemon number)
     {
         Pokemon[] aux = new Pokemon[array.length - 1];
         for (int i = 0; i < array.length; i++)
-            if (array[i].getNumber() == pokemon.getNumber())
+            if (array[i].getNumber() == number.getNumber())
                 array[i] = array[array.length - 1];
         for (int i = 0; i < (array.length - 1); i++)
             aux[i] = array[i];
