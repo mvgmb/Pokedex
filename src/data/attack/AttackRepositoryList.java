@@ -44,7 +44,7 @@ public class AttackRepositoryList implements AttackRepository{
 		}
 	}
 	
-	public boolean exist(Attack attack) {
+	public boolean exist(String attack) {
 		return this.nodo.exist(attack);
 	}
 	
@@ -117,14 +117,14 @@ public class AttackRepositoryList implements AttackRepository{
 			}
 		}
 		
-		public boolean exist(Attack attack) {
+		public boolean exist(String attack) {
 			boolean exists = false;
 			if (this.prox == null) {
-				if (this.attack==attack) {
+				if (this.attack.getName().equalsIgnoreCase(attack)) {
 					exists = true;
 				}
 			} else {
-				if (this.attack==attack) {
+				if (this.attack.getName().equalsIgnoreCase(attack)) {
 					exists = true;
 				} else {
 					this.prox.exist(attack);

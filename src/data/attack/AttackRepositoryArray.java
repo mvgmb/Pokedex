@@ -54,10 +54,10 @@ public class AttackRepositoryArray implements AttackRepository {
         return aux;
     }
 
-    public boolean exist(Attack attack) {
+    public boolean exist(String attack) {
         boolean exists = false;
         for (int i = 0; i < this.array.length; i++) {
-            if (this.array[i] == attack) {
+            if (this.array[i].getName().equalsIgnoreCase(attack)) {
                 exists = true;
             }
         }

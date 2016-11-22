@@ -12,6 +12,6 @@ public interface AttackRepository {
 
     public void update(Attack attack);
 
-    public boolean exist(Attack attack);
+    public boolean exist(String attack);
 	
 }
