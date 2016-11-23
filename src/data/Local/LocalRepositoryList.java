@@ -7,6 +7,8 @@ import negocio.local.Local;
  * Created by gevd on 22/11/2016.
  */
 public class LocalRepositoryList implements LocalRepository {
+
+    private String name;
     private Local local;
     private LocalRepositoryList next;
 

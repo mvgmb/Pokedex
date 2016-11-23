@@ -11,14 +11,14 @@ public class LocalRepositorioArray implements LocalRepository {
 
     // Insere um novo local no array
     public void insert(Local local){
-        Local[] aux = new Local[this.localArray.lenght + 1];
-        for(int i = 0; i < this.localArray.lenght; i++){
+        Local[] aux = new Local[this.localArray.length + 1];
+        for(int i = 0; i < this.localArray.length; i++){
             aux[i] = this.localArray[i];
         }
     }
     // Checa se já existe, método SEARCH utiliza
     public boolean exist(String name){
-        for(int i = 0; i < this.localArray.lenght; i++){
+        for(int i = 0; i < this.localArray.length; i++){
             if(name.equals(this.localArray[i].getName())){
                 return true;
             }
@@ -27,7 +27,7 @@ public class LocalRepositorioArray implements LocalRepository {
     }
     // Procura o local
     public Local search(String name){
-        for(int i = 0; i < this.localArray.lenght; i++){
+        for(int i = 0; i < this.localArray.length; i++){
             if (name.equals(localArray[i].getName())){
                 return localArray[i];
             }
@@ -36,7 +36,7 @@ public class LocalRepositorioArray implements LocalRepository {
     }
     // Remove um local
     public void remove(Local local){
-        for(int i = 0; i < this.localArray.lenght; i++){
+        for(int i = 0; i < this.localArray.length; i++){
             if (name.equals(localArray[i].getName())) {
                 localArray[i] = localArray[localArray.length - 1];
                 Local[] aux = new Local[localArray.length - 1];
