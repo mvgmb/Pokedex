@@ -8,7 +8,6 @@ import negocio.local.Local;
  */
 public class LocalRepositoryList implements LocalRepository {
 
-    private String name;
     private Local local;
     private LocalRepositoryList next;
 
@@ -20,15 +19,16 @@ public class LocalRepositoryList implements LocalRepository {
     public void insert(Local local){
         if(this.next==null){
             this.local.setName(local.getName());
+            this.local.setRoute(local.getRoute());
+            this.local.setCity(local.getCity());
             this.next = new LocalRepositoryList();
         }else insert(local);
     }
     // Checa se a região existe
     public boolean exist(String name){
-        if(name.equalsIgnoreCase(this.local.getName())){
+        if(name.equals(local.getName())){
             return true;
         }else if(this.next==null){
-            if(this.local.getName().equalsIgnoreCase(name));
             return false;
         }else{
             return this.next.exist(name);
@@ -36,27 +36,25 @@ public class LocalRepositoryList implements LocalRepository {
     }
     // Procura a região (nome)
     public Local search(String name){
-        if(exist(name)){
-            if(name.equals(this.local.getName())){
+        if (exist(name)) {
+            if (name.equals(this.local.getName())) {
                 return this.local;
-            }else{
+            } else {
                 return search(name);
             }
-            return null;
         }
+        return null;
     }
     // Atualiza a região
     public void update(Local local){
-        if(exist(name)){
-            if(exist(local.getName())){
-                if(local.getName().equals(this.local.getName())){
-                    this.local.setName(local.setName());
-                }
+        if(exist(local.getName())){
+            if(local.getName().equals(this.local.getName())){
+                this.local = local;
             }
         }
     }
     // Remove uma região
-    public void remove(Local local) {
+    public void remove(String name) {
         if (exist(name)) {
             if (name.equals(this.next.local.getName())) {
                 this.next = this.next.next;

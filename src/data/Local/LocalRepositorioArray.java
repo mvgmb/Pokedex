@@ -7,6 +7,7 @@ import negocio.local.Local;
  * Created by gevd on 22/11/2016.
  */
 public class LocalRepositorioArray implements LocalRepository {
+
     private Local[] localArray = new Local [0];
 
     // Insere um novo local no array
@@ -15,6 +16,7 @@ public class LocalRepositorioArray implements LocalRepository {
         for(int i = 0; i < this.localArray.length; i++){
             aux[i] = this.localArray[i];
         }
+        this.localArray = aux;
     }
     // Checa se já existe, método SEARCH utiliza
     public boolean exist(String name){
@@ -35,7 +37,7 @@ public class LocalRepositorioArray implements LocalRepository {
         return null;
     }
     // Remove um local
-    public void remove(Local local){
+    public void remove(String name){
         for(int i = 0; i < this.localArray.length; i++){
             if (name.equals(localArray[i].getName())) {
                 localArray[i] = localArray[localArray.length - 1];
@@ -50,15 +52,11 @@ public class LocalRepositorioArray implements LocalRepository {
 
     // Atualiza a região
     public void update(Local local){
-        if (exist(local.getName())) {
             for (int i = 0; i < localArray.length; i++) {
                 if (local.getName().equals(localArray[i].getName()))
-                    localArray[i].setName(local.getName());
+                    localArray[i]=(local);
             }
         }
-    }
-
-
 }
 
 
