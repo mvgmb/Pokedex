@@ -1,25 +1,21 @@
 package negocio.trainer;
 
-import abstracts.Profissao;
-
 /**
  * Created by mario on 21/11/16.
  */
-public class Trainer extends Profissao {
+public class Trainer {
     private String name;
     private int badge;
 
     public Trainer(String name, int badge) {
-        super(name);
+        this.name = name;
         this.badge = badge;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
     }
