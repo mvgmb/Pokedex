@@ -6,7 +6,7 @@ import negocio.local.Local;
 /**
  * Created by gevd on 22/11/2016.
  */
-public class LocalRepositorioArray implements LocalRepository {
+public class LocalRepositoryArray implements LocalRepository {
 
     private Local[] localArray = new Local [0];
 
