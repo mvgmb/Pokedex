@@ -19,6 +19,7 @@ import java.io.IOException;
  */
 public class Fachada
 {
+    private static final Fachada ourInstance = new Fachada();
     public boolean repInvalido = false;
 
     private PokemonNegocios pokemonNegocios;
@@ -53,17 +54,50 @@ public class Fachada
         }
     }
 
-    public void cadastrarPokemon(Pokemon pokemon) throws LocalInexistenteException,AttackInexistenteException,InvalidoException, PokemonExistenteException, TipoInvalidoException {
+    //acessar o singleton
+    public static Fachada getInstance() {
+        return ourInstance;
+    }
+
+    public void cadastrarPokemon(Pokemon pokemon) throws PokemonNumberInexistenteException, LocalInexistenteException,AttackInexistenteException,InvalidoException, PokemonExistenteException, TipoInvalidoException {
         if (pokemon != null)
         {
             if (pokemonNegocios.exist(pokemon)){
+                if (pokemon.existNumber()) {
+                    if (pokemon.getNumber() > 0){
+                        if (type.exist(pokemon.getType())) {
+                            if (pokemon.existMove()) {
+                                if (pokemon.existLocal()) {
+                                    pokemonNegocios.insert(pokemon);
+                                } else
+                                    throw new LocalInexistenteException();
+                            } else
+                                throw new AttackInexistenteException();
+                        } else
+                            throw new TipoInvalidoException();
+                }else
+                    throw new PokemonNumberInvalidoException;
+                }
+                else
+                    throw new PokemonNumberInexistenteException();
+            }
+            else
+                throw new PokemonExistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public void atualizar(Pokemon pokemon) throws LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException {
+        if (pokemon != null){
+            if (pokemonNegocios.exist(pokemon)){
                 if (type.exist(pokemon.getType())){
                     if (pokemon.existMove()){
-                        if (pokemon.existLocal()){
-                            pokemonNegocios.insert(pokemon);
-                        }
-                        else
-                            throw new LocalInexistenteException();
+                     if (pokemon.existLocal()){
+
+                     }
+                     else
+                         throw new LocalInexistenteException();
                     }
                     else
                         throw new AttackInexistenteException();
@@ -76,13 +110,6 @@ public class Fachada
         }
         else
             throw new InvalidoException();
-    }
-
-    public void atualizar(Pokemon pokemon) throws LocalInexistenteException,AttackInexistenteException,InvalidoException, PokemonInexistenteException, TipoInvalidoException{
-        if (pokemon != null){
-
-        }else
-            throw new PokemonNul();
     }
 
 

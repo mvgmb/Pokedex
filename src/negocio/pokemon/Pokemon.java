@@ -115,4 +115,13 @@ public class Pokemon {
         }
         return false;
     }
+    public boolean existNumber(){
+        for (int i = 0; i< 4; i++){
+            if (this.number != 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
