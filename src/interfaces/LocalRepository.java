@@ -12,7 +12,7 @@ public interface LocalRepository {
 
     public Local search(String name);
 
-    public Local update(Local local);
+    public void update(Local local);
 
     public boolean exist(String name);
 }
