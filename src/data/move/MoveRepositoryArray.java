@@ -1,17 +1,17 @@
-package data.attack;
+package data.move;
 
-import interfaces.AttackRepository;
-import negocio.attack.Attack;
+import interfaces.MoveRepository;
+import abstracts.Move;
 
-public class AttackRepositoryArray implements AttackRepository {
-    private Attack[] array;
+public class MoveRepositoryArray implements MoveRepository {
+    private Move[] array;
 
-    public AttackRepositoryArray() {
-        array = new Attack[0];
+    public MoveRepositoryArray() {
+        array = new Move[0];
     }
 
-    public void insert(Attack attack) {
-        Attack[] aux = new Attack[this.array.length + 1];
+    public void insert(Move attack) {
+        Move[] aux = new Move[this.array.length + 1];
         for (int i = 0; i < this.array.length; i++) {
             aux[i] = this.array[i];
         }
@@ -22,7 +22,7 @@ public class AttackRepositoryArray implements AttackRepository {
     public void remove(String name) {
         for (int i = 0; i < this.array.length; i++) {
             if (this.array[i].getName() == name) {
-                Attack[] aux = new Attack[this.array.length - 1];
+                Move[] aux = new Move[this.array.length - 1];
                 for (int x = 0; x < this.array.length; x++) {
                     if (x < i) {
                         aux[x] = this.array[x];
@@ -35,7 +35,7 @@ public class AttackRepositoryArray implements AttackRepository {
         }
     }
 
-    public void update(Attack attack) {
+    public void update(Move attack) {
         for (int i = 0; i < this.array.length; i++) {
             if (this.array[i].getName().equals(attack.getName())) {
                 this.array[i] = attack;
@@ -44,8 +44,8 @@ public class AttackRepositoryArray implements AttackRepository {
         }
     }
 
-    public Attack search(String name) {
-        Attack aux = null;
+    public Move search(String name) {
+        Move aux = null;
         for (int i = 0; i < this.array.length; i++) {
             if (this.array[i].getName().equals(name)) {
                 aux = this.array[i];

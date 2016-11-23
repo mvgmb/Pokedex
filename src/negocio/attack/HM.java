@@ -6,19 +6,19 @@ import abstracts.Move;
  * Created by mathe on 22/11/2016.
  */
 
-public class Attack extends Move {
+public class HM extends Move {
     private String name;
     private String type;
     private int pp;
-    private int damage;
     private String effect;
+    private String outsideEffect;
 
-    public Attack() {
+    public HM() {
 
         this.name = null;
         this.type = null;
         this.pp = 0;
-        this.damage = 0;
+        this.outsideEffect = null;
         this.effect = null;
 
     }
@@ -53,11 +53,11 @@ public class Attack extends Move {
         this.pp = pp;
     }
 
-    public int getDamage() {
-        return this.damage;
+    public String getOutEffect() {
+        return this.outsideEffect;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setOutEffect(String outEffect) {
+        this.outsideEffect = outEffect;
     }
 }

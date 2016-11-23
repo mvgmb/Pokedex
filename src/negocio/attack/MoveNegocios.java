@@ -1,24 +1,24 @@
 package negocio.attack;
 
-import negocio.attack.Attack;
-import interfaces.AttackRepository;
-import data.attack.*;
+import interfaces.MoveRepository;
+import data.move.*;
 import exceptions.*;
 import tipo.Tipos;
+import abstracts.Move;
 
 /**
  * Created by assf on 22/11/2016.
  */
-public class AttackNegocios {
+public class MoveNegocios {
 
-    private AttackRepository attackRepositorio;
+    private MoveRepository attackRepositorio;
     private Tipos arrayTipos;
 
-    public AttackNegocios(String name) throws RepositorioInvalidoException {
+    public MoveNegocios(String name) throws RepositorioInvalidoException {
         if (name.equals("array")) {
-            this.attackRepositorio = new AttackRepositoryArray();
+            this.attackRepositorio = new MoveRepositoryArray();
         } else if (name.equals("lista")) {
-            this.attackRepositorio = new AttackRepositoryList();
+            this.attackRepositorio = new MoveRepositoryList();
         } else {
             throw new RepositorioInvalidoException();
         }
