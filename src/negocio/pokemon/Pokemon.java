@@ -3,6 +3,13 @@ package negocio.pokemon;
 public class Pokemon {
     private int number;
     private String name;
+
+    public Pokemon(int number, String name, String type) {
+        this.number = number;
+        this.name = name;
+        this.type = type;
+    }
+
     private String type;
 
     public int getNumber() {
