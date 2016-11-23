@@ -4,7 +4,8 @@ import negocio.ability.Ability;
 import interfaces.AbilityRepository;
 public class AbilityRepositoryList implements AbilityRepository {
 
-    private Node head;
+    private AbilityRepositoryList head;
+    private Ability ability;
 
     public AbilityRepositoryList(){}
 
@@ -17,48 +18,49 @@ public class AbilityRepositoryList implements AbilityRepository {
         }
     }
 
-    public void insert (Ability ability) {
-        if (isEmpty()) {
-            head = new Node();
+    public boolean exist (Ability ability) {
+        if (this.ability.equals(ability)) {
+            return true;
+        } else if (this.head == null){
+            return false;
         } else {
-            Node current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next.add(ability);
+            return this.head.exist(ability);
+        }
+    }
+
+    public void insert (Ability ability) {
+        if (this.head == null) {
+            this.ability = ability;
+            this.head = new AbilityRepositoryList();
+        } else {
+            this.head.insert(ability);
         }
     }
     public void remove (String name) {
-        this.head.delete(name, head);
+        if (this.ability != null){
+            if (this.ability.equals(name)){
+                this.ability = this.head.ability;
+                this.head = this.head.head;
+            }
+            else
+                this.head.remove(name);
+        }
     }
-    public void update (String name, String newDescription) {
-        Node current = head;
+    public void update (Ability ability) {
+        if (this.ability.equals(ability))
+            this.ability = ability;
+        else
+            this.head.update(ability);
 
     }
     public Ability search (String name) {
+        if (this.ability.getName().equals(name))
+            return this.ability;
+        else if (this.head == null)
+            return null;
+        else
+            return this.head.search(name);
     }
 
-    class Node {
-        private Ability ability;
-        private Node next;
 
-        public void add (Ability ability) {
-            if (this.next == null) {
-                this.next = new Node();
-                this.next.ability = ability;
-            } else {
-                this.next.add(ability);
-            }
-        }
-
-        public void delete (String name, Node deleted) {
-            if (deleted.ability.getName().equals(name)) {
-                Node node = new Node();
-                node = deleted.next;
-                deleted = node;
-            } else {
-                deleted.next.delete(name, deleted.next);
-            }
-        }
-    }
 }

@@ -40,12 +40,12 @@ public class AbilityRepositoryArray implements AbilityRepository{
         }
         return null;
     }
-    public void update (String name, String newDescription) {
+    public void update (Ability ability) {
         //Atualiza a descricao de uma habilidade no abilityArray
         for (int contador = 0; contador < this.abilityArray.length; contador ++) {
 
-            if (name.equals(abilityArray[contador].getName())) {
-                abilityArray[contador].setDescription(newDescription);
+            if (ability.getName().equals(abilityArray[contador].getName())) {
+                abilityArray[contador] = ability;
             }
         }
     }
