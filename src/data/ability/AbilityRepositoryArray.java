@@ -6,6 +6,14 @@ public class AbilityRepositoryArray implements AbilityRepository{
 
     private Ability[] abilityArray = new Ability [0];
 
+    public boolean exist (String name) {
+        for (int contador = 0; contador < abilityArray.length; contador ++) {
+            if (name.equals(abilityArray[contador].getName())) {
+                return true;
+            }
+        } return false;
+    }
+
     public void insert (Ability ability) {
         //Inseri uma nova habilidade no abilityArray
         Ability [] array = new Ability[this.abilityArray.length + 1];

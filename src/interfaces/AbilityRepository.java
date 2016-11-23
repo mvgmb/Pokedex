@@ -10,4 +10,6 @@ public interface AbilityRepository {
     void update (Ability ability);
     //Procura uma habilidade
     Ability search (String name);
+    //Checa se uma habilidade existe
+    boolean exist (String name);
 }
