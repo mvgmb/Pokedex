@@ -40,7 +40,7 @@ public class Testes
             }
             // Sem região
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Eletrico", "Static");
                 test.setArrayMoveID("ElectroBall");
                 fachada.cadastrarPokemon(test);
             } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException | PokemonNumberInexistenteException | PokemonIDHabilidadeInexistenteException | PokemonNumberInvalidoException e) {
@@ -48,7 +48,7 @@ public class Testes
             }
             // Pokemon existente
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Amor", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Amor", "Static");
                 test.setArrayMoveID("ElectroBall");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
@@ -65,7 +65,7 @@ public class Testes
             }
             //Move nulo
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Eletrico", "Static");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
             } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException | PokemonNumberInexistenteException | PokemonIDHabilidadeInexistenteException | PokemonNumberInvalidoException e) {
@@ -73,7 +73,7 @@ public class Testes
             }
             //Local nulo
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Eletrico", "Static");
                 test.setArrayMoveID("ElectroBall");
                 fachada.cadastrarPokemon(test);
             } catch (PokemonIDHabilidadeInexistenteException | PokemonNumberInexistenteException | LocalInexistenteException | AtaqueInexistenteException | InvalidoException | PokemonExistenteException | TipoInvalidoException | PokemonNumberInvalidoException e) {
@@ -83,7 +83,7 @@ public class Testes
 
             // Pokemon Inexistente
             try {
-                Pokemon test = new Pokemon(123, "Charmander", "Fogo", "Static");
+                Pokemon test = new Pokemon("123", "Charmander", "Fogo", "Static");
                 test.setArrayMoveID("Ember");
                 test.setArrayLocalID("Kanto");
                 fachada.removerPokemon("Pidgey");
@@ -95,7 +95,7 @@ public class Testes
 
             //Pokemon Inexistente
             try {
-                Pokemon test = new Pokemon(123, "Charmander", "Fogo", "Static");
+                Pokemon test = new Pokemon("123", "Charmander", "Fogo", "Static");
                 test.setArrayMoveID("Ember");
                 test.setArrayLocalID("Kanto");
                 fachada.atualizarPokemon(test);
@@ -109,7 +109,7 @@ public class Testes
             try {
                 Local local = new Local();
                 local.setName("area");
-                local.setRoute(12);
+                local.setRoute("12");
                 local.setCity("Pallet");
                 fachada.cadastrarLocal(local);
                 fachada.cadastrarLocal(local);
@@ -121,7 +121,7 @@ public class Testes
             try {
                 Local local = new Local();
                 local.setName("area");
-                local.setRoute(-3);
+                local.setRoute("-3");
                 local.setCity("Pallet");
                 fachada.cadastrarLocal(local);
             } catch (LocalCidadeInvalidaException | LocalRotaInvalidaException | LocalInexistenteException | LocalExistenteException e) {
@@ -141,7 +141,7 @@ public class Testes
             try {
                 Local local = new Local();
                 local.setName("area");
-                local.setRoute(12);
+                local.setRoute("12");
                 local.setCity("Pallet");
                 fachada.cadastrarLocal(local);
                 fachada.removerLocal("canto");
@@ -154,7 +154,7 @@ public class Testes
             try {
                 Local local = new Local();
                 local.setName("area");
-                local.setRoute(12);
+                local.setRoute("12");
                 local.setCity("Pallet");
                 fachada.removerLocal("canto");
             } catch (InvalidoException | LocalInexistenteException e){
@@ -254,7 +254,7 @@ public class Testes
                 hiddenMachine.setName("cut");
                 hiddenMachine.setEffect("corta");
                 hiddenMachine.setOutEffect("sangra");
-                hiddenMachine.setPP(3);
+                hiddenMachine.setPP("3");
                 fachada.removerHiddenMachine(hiddenMachine.getName());
             } catch (HiddenMachineInexistenteException e) {
                 e.printStackTrace();
@@ -287,7 +287,7 @@ public class Testes
 
             //CADASTRAR HIDDENMACHINE JA EXISTENTE
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "1", "ousideeffect", "effect");
             HiddenMachine hm2 = hm1;
             fachada.cadastrarHiddenMachine(hm1);
             fachada.cadastrarHiddenMachine(hm2);
@@ -297,7 +297,7 @@ public class Testes
 
             //CADASTRAR ATTACK JA EXISTENTE
         try {
-            Attack attack = new Attack("name", "fogo", 1, 2, "effect");
+            Attack attack = new Attack("name", "fogo", "1", "2", "effect");
             Attack attack1 = attack;
             fachada.cadastrarAtaque(attack);
             fachada.cadastrarAtaque(attack1);
@@ -307,7 +307,7 @@ public class Testes
 
             //Cadastrar hiddenmachine tipo inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", 1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", "1", "ousideeffect", "effect");
             fachada.cadastrarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
@@ -317,7 +317,7 @@ public class Testes
 
             //Cadastrar ataque inválido
         try {
-            Attack attack = new Attack("name", "dorgado", 1, 21, "effect");
+            Attack attack = new Attack("name", "dorgado", "1", "21", "effect");
             fachada.cadastrarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
@@ -325,7 +325,7 @@ public class Testes
 
             //Cadastrar PP inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", "-1", "ousideeffect", "effect");
             fachada.cadastrarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
@@ -333,35 +333,35 @@ public class Testes
 
             //Cadastrar PP inválido
         try {
-            Attack attack = new Attack("name", "fogo", -1, 21, "effect");
+            Attack attack = new Attack("name", "fogo", "-1", "21", "effect");
             fachada.cadastrarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
         }
         //Cadastrar efeito inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "2", "ousideeffect", null);
             fachada.cadastrarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException | HiddenMachinePPException e) {
             e.printStackTrace();
         }
             //Cadastrar efeito inválido
         try {
-            Attack attack = new Attack("name", "fogo", 2, 12, null);
+            Attack attack = new Attack("name", "fogo", "2", "12", null);
             fachada.cadastrarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
         }
         //Cadastrar efeito exterior inválido
         try{
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "2", null, "effect");
             fachada.cadastrarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
         //Cadastrar dano inválido
         try{
-            Attack attack = new Attack("name", "fogo", 2, -1, "effect");
+            Attack attack = new Attack("name", "fogo", "2", "-1", "effect");
             fachada.cadastrarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
@@ -385,7 +385,7 @@ public class Testes
 
             //Atualizar hiddenmachine inexistente
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "1", "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachineInexistenteException | HiddenMachinePPException | TipoInvalidoException e1) {
             e1.printStackTrace();
@@ -395,7 +395,7 @@ public class Testes
 
             //Atualizar attack inexistente
         try {
-            Attack attack = new Attack("name", "fogo", 1, 2, "effect");
+            Attack attack = new Attack("name", "fogo", "1", "2", "effect");
             fachada.atualizarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | AtaqueDanoInvalidoException e) {
             e.printStackTrace();
@@ -403,7 +403,7 @@ public class Testes
 
         //Atualizar hiddenmachine tipo inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "joao", 1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "joao", "1", "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
@@ -411,7 +411,7 @@ public class Testes
 
         //Atualizar attack tipo inválido
         try {
-            Attack attack = new Attack("name", "dorgado", 1, 21, "effect");
+            Attack attack = new Attack("name", "dorgado", "1", "21", "effect");
             fachada.atualizarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
@@ -419,7 +419,7 @@ public class Testes
 
         //Atualizar pp inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", "-1", "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
@@ -427,7 +427,7 @@ public class Testes
 
         //Atualizar pp inválido
         try {
-            Attack attack = new Attack("name", "fogo", -1, 21, "effect");
+            Attack attack = new Attack("name", "fogo", "-1", "21", "effect");
             fachada.atualizarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueInexistenteException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | TipoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
@@ -435,7 +435,7 @@ public class Testes
 
         //Atualizar efeito inválido
         try {
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "2", "ousideeffect", null);
             fachada.atualizarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
@@ -443,7 +443,7 @@ public class Testes
 
         //Atualizar efeito inválido
         try {
-            Attack attack = new Attack("name", "fogo", 2, 12, null);
+            Attack attack = new Attack("name", "fogo", "2", "12", null);
             fachada.atualizarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
@@ -451,7 +451,7 @@ public class Testes
 
         //Atualizar efeito exterior inválido
         try{
-            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", "2", null, "effect");
             fachada.atualizarHiddenMachine(hm1);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
@@ -459,7 +459,7 @@ public class Testes
 
         //Atualizar dano inválido
         try{
-            Attack attack = new Attack("name", "fogo", 2, -1, "effect");
+            Attack attack = new Attack("name", "fogo", "2", "-1", "effect");
             fachada.atualizarAtaque(attack);
         } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
