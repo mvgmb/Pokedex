@@ -13,6 +13,7 @@ public class PokemonRepositorioList implements PokemonRepositorio
         this.pokemon = null;
     }
 
+    // Checa se o pokemon existe na lista
     public boolean exist(String name) {
         if (this.pokemon.getName().equals(name))
             return true;
@@ -22,6 +23,7 @@ public class PokemonRepositorioList implements PokemonRepositorio
             return this.node.exist(name);
     }
 
+    // Inseri um pokemon na lista
     public void insert(Pokemon pokemon)
     {
         if (this.node == null)
@@ -33,6 +35,7 @@ public class PokemonRepositorioList implements PokemonRepositorio
             this.node.insert(pokemon);
     }
 
+    // Remove um pokemon da lista
     public void remove(String name) {
         if (this.pokemon != null) {
             if (this.pokemon.getName().equals(name)) {
@@ -43,6 +46,7 @@ public class PokemonRepositorioList implements PokemonRepositorio
         }
     }
 
+    // Procura um pokemon na lista
     public Pokemon search(String name) {
         if (this.pokemon.getName().equals(name))
             return this.pokemon;
@@ -52,6 +56,7 @@ public class PokemonRepositorioList implements PokemonRepositorio
             return this.node.search(name    );
     }
 
+    // Atualiza um pokemon na lista
     public void update(Pokemon pokemon) {
         if (this.pokemon.equals(pokemon))
             this.pokemon = pokemon;

@@ -7,6 +7,7 @@ public class PokemonRepositorioArray implements PokemonRepositorio
 {
     private Pokemon[] array = new Pokemon[0];
 
+    // Checa se o Pokemon existe no array
     public boolean exist(String name) {
         for (int i = 0; i < array.length; i++)
             if (array[i].getName().equals(name))
