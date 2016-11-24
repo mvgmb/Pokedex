@@ -64,4 +64,21 @@ public class PokemonRepositorioList implements PokemonRepositorio
             this.node.update(pokemon);
     }
 
+    //Retorna uma array com os objetos Pokémons
+    public Pokemon[] returnContent(){
+        if (this.node == null){
+            Pokemon[] aux = new Pokemon[1];
+            aux[0] = this.pokemon;
+            return aux;
+        }
+        else{
+            Pokemon[] aux = new Pokemon[returnContent().length+1];
+            aux[0] = this.pokemon;
+            for (int i = 1; i < aux.length; i++){
+                aux[i] = returnContent()[i];
+            }
+            return aux;
+        }
+    }
+
 }

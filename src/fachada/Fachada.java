@@ -184,6 +184,20 @@ public class Fachada
             throw new InvalidoException();
     }
 
+    public Pokemon[] retornarConteudoPokemons() throws PokemonNenhumCadastradoException, InvalidoException {
+        if (pokemonNegocios.returnConten() != null)
+        {
+            if (pokemonNegocios.returnConten().length == 0)
+            {
+                return pokemonNegocios.returnConten();
+            }
+            else
+                throw new PokemonNenhumCadastradoException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
     //Trainer
 
     public void cadastrarTreinador(Trainer trainer) throws InvalidoException, TrainerExistenteException, TrainerBadgeInvalidoException {

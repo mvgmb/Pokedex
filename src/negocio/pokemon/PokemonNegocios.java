@@ -16,49 +16,35 @@ public class PokemonNegocios {
     private PokemonRepositorio pokemonRepositorio;
     private Tipos arrayTipos;
 
-    public PokemonNegocios(String tipo) throws RepositorioInvalidoException {
+    public PokemonNegocios(String tipo){
         if (tipo.equals("array"))
             pokemonRepositorio = new PokemonRepositorioArray();
         else if (tipo.equals("lista"))
             pokemonRepositorio = new PokemonRepositorioList();
-        else
-            throw new RepositorioInvalidoException();
     }
 
     public boolean exist(String name) {
         return pokemonRepositorio.exist(name);
     }
 
-    public void insert(Pokemon pokemon) throws PokemonExistenteException, TipoInvalidoException {
-        if (!arrayTipos.exist(pokemon.getName())) {
-            throw new TipoInvalidoException();
-        } else if (!exist(pokemon.getName()))
+    public void insert(Pokemon pokemon) {
             pokemonRepositorio.insert(pokemon);
-        else
-            throw new PokemonExistenteException();
     }
 
-    public void remove(String name) throws PokemonInexistenteException
-    {
-        if (exist(name))
+    public void remove(String name) {
             pokemonRepositorio.remove(name);
-        else
-            throw new PokemonInexistenteException();
     }
 
-    public Pokemon search(String name) throws PokemonInexistenteException
-    {
-        if (exist(name))
+    public Pokemon search(String name) {
            return pokemonRepositorio.search(name);
-        else
-            throw new PokemonInexistenteException();
     }
 
-    public void update(Pokemon pokemon) throws PokemonInexistenteException
-    {
-        if (exist(pokemon.getName()))
-            pokemonRepositorio.update(pokemon);
-        else
-            throw new PokemonInexistenteException();
+    public void update(Pokemon pokemon){
+        pokemonRepositorio.update(pokemon);
     }
+
+    public Pokemon[] returnConten(){
+        return pokemonRepositorio.returnContent();
+    }
+
 }
