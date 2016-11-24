@@ -20,7 +20,7 @@ public class AbilityRepositoryArray implements AbilityRepository{
         for (int contador = 0; contador < this.abilityArray.length; contador ++) {
             array [contador] = abilityArray [contador];
         }
-        array[abilityArray.length + 1] = ability;
+        array[abilityArray.length] = ability;
         abilityArray = array;
     }
     //Remove uma habilidade do abilityArray

@@ -24,7 +24,7 @@ public class MoveRepositoryArray implements MoveRepository {
     //Remove uma Move do array
     public void remove(String name) {
         for (int i = 0; i < this.array.length; i++) {
-            if (this.array[i].getName() == name) {
+            if (this.array[i].getName().equalsIgnoreCase(name)) {
                 Move[] aux = new Move[this.array.length - 1];
                 for (int x = 0; x < this.array.length; x++) {
                     if (x < i) {
@@ -41,7 +41,7 @@ public class MoveRepositoryArray implements MoveRepository {
     //Atualiza um Move no array
     public void update(Move attack) {
         for (int i = 0; i < this.array.length; i++) {
-            if (this.array[i].getName().equals(attack.getName())) {
+            if (this.array[i].getName().equalsIgnoreCase(attack.getName())) {
                 this.array[i] = attack;
                 //break;
             }
@@ -52,7 +52,7 @@ public class MoveRepositoryArray implements MoveRepository {
     public Move search(String name) {
         Move aux = null;
         for (int i = 0; i < this.array.length; i++) {
-            if (this.array[i].getName().equals(name)) {
+            if (this.array[i].getName().equalsIgnoreCase(name)) {
                 aux = this.array[i];
             }
         }
