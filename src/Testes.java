@@ -1,4 +1,5 @@
 import exceptions.*;
+import negocio.attack.HiddenMachine;
 import negocio.pokemon.Pokemon;
 import fachada.Fachada;
 import negocio.local.Local;
@@ -240,6 +241,30 @@ public class Testes
                 Ability ability = new Ability("Fly","voa");
                 fachada.procurarHabilidade("Run");
             } catch (HabilidadeInexistenteException e) {
+                e.printStackTrace();
+            }
+
+
+            //HIDDENMACHINE
+            //REMOVER
+            //Remover HiddenMachine inexistente
+            try {
+                HiddenMachine hiddenMachine = new HiddenMachine();
+                hiddenMachine.setName("cut");
+                hiddenMachine.setEffect("corta");
+                hiddenMachine.setOutEffect("sangra");
+                hiddenMachine.setPP(3);
+                fachada.removerHiddenMachine(hiddenMachine);
+            } catch (HiddenMachineInexistenteException e) {
+                e.printStackTrace();
+            }
+
+            //PROCURAR
+            //Procurar HiddenMachine inexistente
+            try {
+                HiddenMachine hiddenMachine = new HiddenMachine();
+                fachada.procurarHiddenMachine("escondida");
+            } catch (HiddenMachineInexistenteException e) {
                 e.printStackTrace();
             }
     }

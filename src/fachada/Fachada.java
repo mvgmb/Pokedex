@@ -587,7 +587,7 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    public void removerHiddenMachine(String name) throws InvalidoException, HiddenMachineInexistenteException {
+    public void removerHiddenMachine(HiddenMachine name) throws InvalidoException, HiddenMachineInexistenteException {
         if (name != null)
         {
             if (hiddenMachineNegocios.exists(name))
