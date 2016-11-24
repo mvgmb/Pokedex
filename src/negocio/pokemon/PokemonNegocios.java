@@ -2,12 +2,8 @@ package negocio.pokemon;
 
 import data.pokemon.PokemonRepositorioArray;
 import data.pokemon.PokemonRepositorioList;
-import exceptions.PokemonExistenteException;
-import exceptions.PokemonInexistenteException;
-import exceptions.RepositorioInvalidoException;
-import exceptions.TipoInvalidoException;
 import interfaces.PokemonRepositorio;
-import tipo.Tipos;
+import negocio.tipos.Tipos;
 
 /**
  * Created by mathe on 22/11/2016.

@@ -30,7 +30,7 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     {
         Pokemon[] aux = new Pokemon[pokemonArray.length - 1];
         for (int i = 0; i < pokemonArray.length; i++)
-            if (pokemonArray[i].getName() == name)
+            if (pokemonArray[i].getName().equalsIgnoreCase(name))
                 pokemonArray[i] = pokemonArray[pokemonArray.length - 1];
         for (int i = 0; i < (pokemonArray.length - 1); i++)
             aux[i] = pokemonArray[i];
@@ -41,7 +41,7 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     public void update(Pokemon pokemon)
     {
         for (int i = 0; i < pokemonArray.length; i++)
-            if (pokemonArray[i].getNumber() == pokemon.getNumber())
+            if (pokemonArray[i].getNumber().equalsIgnoreCase(pokemon.getNumber()))
                 pokemonArray[i] = pokemon;
     }
 
@@ -49,7 +49,7 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     public Pokemon search(String name)
     {
         for (int i = 0; i < pokemonArray.length; i++)
-            if (pokemonArray[i].getName() == name)
+            if (pokemonArray[i].getName().equalsIgnoreCase(name))
                 return pokemonArray[i];
         return null;
     }

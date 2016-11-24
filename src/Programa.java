@@ -1,22 +1,11 @@
 import abstracts.Move;
 import exceptions.*;
 import negocio.ability.Ability;
-import negocio.ability.AbilityNegocios;
 import negocio.attack.Attack;
 import negocio.attack.HiddenMachine;
-import negocio.attack.MoveNegocios;
 import negocio.local.Local;
-import negocio.local.LocalNegocios;
 import negocio.pokemon.Pokemon;
-import negocio.pokemon.PokemonNegocios;
 import negocio.trainer.Trainer;
-import negocio.trainer.TrainerNegocios;
-import tipo.Tipos;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 import fachada.Fachada;
 
@@ -74,8 +63,8 @@ public class Programa
                         } catch (AtaqueInexistenteException | InvalidoException | PokemonNumberInexistenteException | TipoInvalidoException | PokemonIDHabilidadeInexistenteException | PokemonExistenteException | PokemonNumberInvalidoException | LocalInexistenteException e) {
                             System.out.println("Digite novamente.");
                             System.out.println("Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -91,8 +80,8 @@ public class Programa
                         } catch (PokemonInexistenteException | InvalidoException e) {
                             System.out.println("Digite novamente");
                             System.out.println("Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -107,8 +96,8 @@ public class Programa
                             fachada.procurarPokemon(in.nextLine());
                         } catch (PokemonInexistenteException | InvalidoException e) {
                             System.out.println("Erro na procura. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -131,13 +120,13 @@ public class Programa
                             fachada.atualizarPokemon(pokemon);
                         } catch (PokemonInexistenteException | InvalidoException e) {
                             System.out.println("Digite novamente o nome do pokemon");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         } catch (PokemonNumberInvalidoException | TipoInvalidoException | PokemonNumberInexistenteException | PokemonExistenteException | LocalInexistenteException | AtaqueInexistenteException | PokemonIDHabilidadeInexistenteException e) {
                             System.out.println("Erro na modificação do pokemon. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -153,8 +142,8 @@ public class Programa
                             fachada.cadastrarHabilidade(habilidade);
                         } catch (HabilidadeDescricaoInexistenteException | HabilidadeExistenteException | InvalidoException e) {
                             System.out.println("Erro no cadastro da Habilidade. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -168,8 +157,8 @@ public class Programa
                             fachada.removerPokemon(in.nextLine());
                         } catch (PokemonInexistenteException | InvalidoException e) {
                             System.out.println("Erro na remoção da Habilidade. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -184,8 +173,8 @@ public class Programa
                             fachada.procurarPokemon(in.nextLine());
                         } catch (PokemonInexistenteException | InvalidoException e) {
                             System.out.println("Erro na procura da Habilidade. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -202,8 +191,8 @@ public class Programa
                             fachada.atualizarHabilidade(habilidade);
                         } catch (HabilidadeInexistenteException | InvalidoException | HabilidadeDescricaoInexistenteException e) {
                             System.out.println("Erro na atualização da Habilidade. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -219,8 +208,8 @@ public class Programa
                             fachada.cadastrarLocal(local);
                         } catch (InvalidoException | LocalCidadeInvalidaException | LocalInexistenteException | LocalExistenteException | LocalRotaInvalidaException e) {
                             System.out.println("Erro no cadastramento do Local. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -235,8 +224,8 @@ public class Programa
                             fachada.removerLocal(in.nextLine());
                         } catch (LocalInexistenteException | InvalidoException e) {
                             System.out.println("Erro na remoção da região. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -251,8 +240,8 @@ public class Programa
                             fachada.procurarLocal(in.nextLine());
                         } catch (LocalInexistenteException | InvalidoException e) {
                             System.out.println("Erro na procura da região. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -270,8 +259,8 @@ public class Programa
                             fachada.atualizarLocal(local);
                         } catch (LocalCidadeInvalidaException | InvalidoException | LocalInexistenteException | LocalRotaInvalidaException e) {
                             System.out.println("Erro na atualização da região. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while (!success);
@@ -286,8 +275,8 @@ public class Programa
                         System.out.println("Sucesso na operação");
                     } catch (HiddenMachineEfeitoExteriorInvalidoException | InvalidoException | TipoInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException e) {
                         System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                        int loop = in.nextInt();
-                        if (loop == 1)
+                        String loop = in.nextLine();
+                        if (loop == "1")
                             success = false;
                     }
                 } while(!success);
@@ -302,8 +291,8 @@ public class Programa
                         System.out.println("Sucesso na operação");
                     } catch (HiddenMachineInexistenteException | InvalidoException e) {
                         System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                        int loop = in.nextInt();
-                        if (loop == 1)
+                        String loop = in.nextLine();
+                        if (loop == "1")
                             success = false;
                     }
                 } while(!success);
@@ -318,8 +307,8 @@ public class Programa
                         System.out.println("Sucesso na operação");
                     } catch (HiddenMachineInexistenteException | InvalidoException e) {
                         System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                        int loop = in.nextInt();
-                        if (loop == 1)
+                        String loop = in.nextLine();
+                        if (loop == "1")
                             success = false;
                     }
                 } while(!success);
@@ -340,8 +329,8 @@ public class Programa
                         System.out.println("Sucesso na operação");
                     } catch (HiddenMachineEfeitoExteriorInvalidoException | InvalidoException | TipoInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineInexistenteException | HiddenMachinePPException | HiddenMachineExistenteException e) {
                         System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                        int loop = in.nextInt();
-                        if (loop == 1)
+                        String loop = in.nextLine();
+                        if (loop == "1")
                             success = false;
                     }
 
@@ -357,8 +346,8 @@ public class Programa
                             System.out.println("Sucesso na operação");
                         } catch (AtaqueEfeitoInvalidoException | AtaqueExistenteException | AtaquePPInvalidoException | AtaqueDanoInvalidoException | TipoInvalidoException | InvalidoException e) {
                             System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while(!success);
@@ -373,8 +362,8 @@ public class Programa
                             System.out.println("Sucesso na operação");
                         } catch (AtaqueInexistenteException | InvalidoException e) {
                             System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while(!success);
@@ -389,8 +378,8 @@ public class Programa
                             System.out.println("Sucesso na operação");
                         } catch (AtaqueInexistenteException | InvalidoException e) {
                             System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
                     } while(!success);
@@ -411,8 +400,8 @@ public class Programa
                             System.out.println("Sucesso na operação");
                         } catch (AtaquePPInvalidoException | InvalidoException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueInexistenteException | AtaqueExistenteException | AtaqueDanoInvalidoException e) {
                             System.out.println("Erro! Digite corretamente todas as informações. Digite 1(um) para tentar novamente, outro para sair");
-                            int loop = in.nextInt();
-                            if (loop == 1)
+                            String loop = in.nextLine();
+                            if (loop == "1")
                                 success = false;
                         }
 

@@ -3,8 +3,8 @@ package negocio.attack;
 import interfaces.MoveRepository;
 import data.move.*;
 import exceptions.*;
-import tipo.Tipos;
 import abstracts.Move;
+import negocio.tipos.Tipos;
 
 /**
  * Created by assf on 22/11/2016.

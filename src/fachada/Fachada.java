@@ -10,9 +10,9 @@ import negocio.local.Local;
 import negocio.local.LocalNegocios;
 import negocio.pokemon.Pokemon;
 import negocio.pokemon.PokemonNegocios;
+import negocio.tipos.Tipos;
 import negocio.trainer.Trainer;
 import negocio.trainer.TrainerNegocios;
-import tipo.Tipos;
 
 import java.io.*;
 
@@ -76,7 +76,7 @@ public class Fachada
                 {
                     if (Integer.parseInt(pokemon.getNumber()) > 0)
                     {
-                        if (type.exist(pokemon.getType()))
+                        if (Tipos.contains(pokemon.getType()))
                         {
                             if (pokemon.existMove())
                             {
@@ -120,7 +120,7 @@ public class Fachada
                 {
                     if (Integer.parseInt(pokemon.getNumber()) > 0)
                     {
-                        if (type.exist(pokemon.getType()))
+                        if (Tipos.contains(pokemon.getType()))
                         {
                             if (pokemon.existMove())
                             {
@@ -425,7 +425,7 @@ public class Fachada
         {
             if (!attackNegocios.exists(attack.getName()))
             {
-                if (type.exist(attack.getType()))
+                if (Tipos.contains(attack.getType()))
                 {
                     if (Integer.parseInt(attack.getPP()) > 0)
                     {
@@ -459,7 +459,7 @@ public class Fachada
         {
             if (attackNegocios.exists(attack.getName()))
             {
-                if (type.exist(attack.getType()))
+                if (Tipos.contains(attack.getType()))
                 {
                     if (Integer.parseInt(attack.getPP()) > 0)
                     {
@@ -523,7 +523,7 @@ public class Fachada
         {
             if (!hiddenMachineNegocios.exists(hiddenMachine.getName()))
             {
-                if (type.exist(hiddenMachine.getType()))
+                if (Tipos.contains(hiddenMachine.getType()))
                 {
                     if (Integer.parseInt(hiddenMachine.getPP()) > 0)
                     {
@@ -557,7 +557,7 @@ public class Fachada
         {
             if (hiddenMachineNegocios.exists(hiddenMachine.getName()))
             {
-                if (type.exist(hiddenMachine.getType()))
+                if (Tipos.contains(hiddenMachine.getType()))
                 {
                     if (Integer.parseInt(hiddenMachine.getPP()) > 0)
                     {
