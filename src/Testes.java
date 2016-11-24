@@ -390,7 +390,7 @@ public class Testes
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachineInexistenteException | HiddenMachinePPException | TipoInvalidoException e1) {
             e1.printStackTrace();
         }
-    }
+
 
 
             //Atualizar attack inexistente
