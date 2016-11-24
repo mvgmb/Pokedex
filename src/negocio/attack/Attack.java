@@ -22,6 +22,15 @@ public class Attack extends Move {
         this.effect = null;
 
     }
+    public Attack(String name, String type, int pp, int damage, String effect) {
+
+        this.name = name;
+        this.type = type;
+        this.pp = pp;
+        this.damage = damage;
+        this.effect = effect;
+
+    }
 
     public void setEffect(String effect) {
         this.effect = effect;

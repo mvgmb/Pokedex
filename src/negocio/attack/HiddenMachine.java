@@ -23,6 +23,16 @@ public class HiddenMachine extends Move {
 
     }
 
+    public HiddenMachine(String name, String type, int pp, String outSideEffect, String effect) {
+
+        this.name = name;
+        this.type = type;
+        this.pp = pp;
+        this.outsideEffect = outSideEffect;
+        this.effect = effect;
+
+    }
+
     public void setEffect(String effect) {
         this.effect = effect;
     }
