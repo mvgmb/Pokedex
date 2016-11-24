@@ -237,7 +237,7 @@ public class Fachada
         else throw new InvalidoException();
     }
 
-    public Trainer procurar(String name) throws InvalidoException, TrainerInexistenteException {
+    public Trainer procurarTreinador(String name) throws InvalidoException, TrainerInexistenteException {
         if (name != null)
         {
             if (trainerNegocios.exist(name))
@@ -247,6 +247,15 @@ public class Fachada
             else throw new TrainerInexistenteException();
         }
         else throw new InvalidoException();
+    }
+
+    public Trainer[] retonarConteudoTreinador() throws InvalidoException{
+        if (trainerNegocios.returnContent() != null)
+        {
+            if ()
+        }
+        else
+            throw new InvalidoException();
     }
 
     //Local

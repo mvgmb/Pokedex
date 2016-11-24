@@ -9,7 +9,7 @@ import negocio.trainer.Trainer;
 public class TrainerRepositoryArray implements TrainerRepository{
     private Trainer[] trainerArray = new Trainer[0];
 
-    //  Insere um novo coach na array
+    //  Insere um novo na array
     @Override
     public void insert(Trainer coach) {
         Trainer[] aux = new Trainer[this.trainerArray.length + 1];
@@ -68,5 +68,8 @@ public class TrainerRepositoryArray implements TrainerRepository{
             }
         }
     }
-
+    @Override
+    public Trainer[] returnContent(){
+        return this.trainerArray;
+    }
 }

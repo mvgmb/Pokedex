@@ -28,4 +28,8 @@ public class Trainer {
         this.badge = badge;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Nome: %s\nBadge: %d", this.name, this.badge);
+    }
 }

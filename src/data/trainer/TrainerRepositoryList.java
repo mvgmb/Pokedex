@@ -1,5 +1,6 @@
 package data.trainer;
 
+import com.sun.deploy.util.ArrayUtil;
 import interfaces.TrainerRepository;
 import negocio.trainer.Trainer;
 
@@ -64,6 +65,22 @@ public class TrainerRepositoryList implements TrainerRepository {
             if (name.equals(this.next.trainer.getName())) {
                 this.next = this.next.next;
             }
+        }
+    }
+    @Override
+    public Trainer[] returnContent(){
+        if (this.next == null){
+            Trainer[] aux = new Trainer[1];
+            aux[0] = this.trainer;
+            return aux;
+        }
+        else{
+            Trainer[] aux = new Trainer[returnContent().length+1];
+            aux[0] = this.trainer;
+            for (int i = 1; i < aux.length; i++){
+                aux[i] = returnContent()[i];
+            }
+            return aux;
         }
     }
 

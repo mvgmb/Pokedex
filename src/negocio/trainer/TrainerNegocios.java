@@ -3,8 +3,6 @@ package negocio.trainer;
 import data.trainer.TrainerRepositoryArray;
 import data.trainer.TrainerRepositoryList;
 import exceptions.RepositorioInvalidoException;
-import exceptions.TrainerExistenteException;
-import exceptions.TrainerInexistenteException;
 import interfaces.TrainerRepository;
 
 /**
@@ -32,7 +30,7 @@ public class TrainerNegocios {
         return trainerRepository.exist(nome);
     }
 
-    // Insere um novo objeto, caso ele na não exista
+    // Insere um novo objeto, caso ele não exista
     public void insert(Trainer trainer) {
         trainerRepository.insert(trainer);
     }
@@ -50,5 +48,8 @@ public class TrainerNegocios {
     //  Remove um objeto caso ele exista
     public void remove(String name){
             trainerRepository.remove(name);
+    }
+    public Trainer[] returnContent(){
+        return trainerRepository.returnContent();
     }
 }
