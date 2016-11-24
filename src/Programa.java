@@ -29,7 +29,7 @@ public class Programa {
         Scanner in = new Scanner(System.in);
         Fachada fachada = new Fachada();
 
-        System.out.println("Bem vindo ao PC/Pokedex do Professor Caralho. \n Me diga seu nome e a quantidade de insignias que voce já roubou, ops' já conquistou.");
+        System.out.println("Bem vindo ao PC/Pokedex do Professor Caralho.\nMe diga seu nome e a quantidade de insignias que voce já roubou, ops' já conquistou.");
         Trainer treinador = new Trainer("juca", 0);
         try {
             fachada.cadastrarTreinador(treinador);

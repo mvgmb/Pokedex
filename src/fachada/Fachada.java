@@ -35,7 +35,7 @@ public class Fachada
     private LocalNegocios localNegocios;
     private AbilityNegocios abilityNegocios;
 
-    private Fachada()
+    public Fachada()
     {
         try
         {
