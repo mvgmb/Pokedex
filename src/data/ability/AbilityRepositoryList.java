@@ -6,9 +6,9 @@ public class AbilityRepositoryList implements AbilityRepository {
 
     private AbilityRepositoryList head;
     private Ability ability;
-
     public AbilityRepositoryList(){}
 
+    //Checa se a lista esta vazia
     public boolean isEmpty() {
 
         if (head == null) {
@@ -17,17 +17,17 @@ public class AbilityRepositoryList implements AbilityRepository {
             return false;
         }
     }
-
-    public boolean exist (Ability ability) {
-        if (this.ability.equals(ability)) {
+    //Checa se a hablidade existe na lista
+    public boolean exist (String name) {
+        if (this.ability.getName().equals(name)) {
             return true;
         } else if (this.head == null){
             return false;
         } else {
-            return this.head.exist(ability);
+            return this.head.exist(name);
         }
     }
-
+    //Inseri uma habilidade na lista
     public void insert (Ability ability) {
         if (this.head == null) {
             this.ability = ability;
@@ -36,6 +36,7 @@ public class AbilityRepositoryList implements AbilityRepository {
             this.head.insert(ability);
         }
     }
+    //Remove uma habilidade da lista
     public void remove (String name) {
         if (this.ability != null){
             if (this.ability.equals(name)){
@@ -46,6 +47,7 @@ public class AbilityRepositoryList implements AbilityRepository {
                 this.head.remove(name);
         }
     }
+    //Atualiza uma habilidade na lista
     public void update (Ability ability) {
         if (this.ability.equals(ability))
             this.ability = ability;
@@ -53,6 +55,7 @@ public class AbilityRepositoryList implements AbilityRepository {
             this.head.update(ability);
 
     }
+    //Procura por uma habilidade na lista
     public Ability search (String name) {
         if (this.ability.getName().equals(name))
             return this.ability;
