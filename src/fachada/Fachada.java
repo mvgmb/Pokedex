@@ -258,7 +258,7 @@ public class Fachada
             {
                 if (local.getRoute() >= 0)
                 {
-                    if (!local.getCity().equals(null))
+                    if (local.getCity() != null)
                     {
                         localNegocios.insert(local);
                     }
@@ -281,7 +281,7 @@ public class Fachada
             {
                 if (local.getRoute() >= 0)
                 {
-                    if (!local.getCity().equals(null))
+                    if (local.getCity() != null)
                     {
                         localNegocios.update(local);
                     }
@@ -333,7 +333,7 @@ public class Fachada
         {
             if (!abilityNegocios.exist(ability.getName()))
             {
-                if (!ability.getDescription().equals(null))
+                if (ability.getDescription() != null)
                 {
                     abilityNegocios.insert(ability);
                 }
@@ -352,7 +352,7 @@ public class Fachada
         {
             if (abilityNegocios.exist(ability.getName()))
             {
-                if(!ability.getDescription().equals(null))
+                if(ability.getDescription() != null)
                 {
                     abilityNegocios.update(ability);
                 }
@@ -402,7 +402,7 @@ public class Fachada
                 {
                     if (attack.getPP() > 0)
                     {
-                        if (!attack.getEffect().equals(null))
+                        if (attack.getEffect() != null)
                         {
                             if (attack.getDamage() >= 0)
                             {
@@ -436,7 +436,7 @@ public class Fachada
                 {
                     if (attack.getPP() > 0)
                     {
-                        if (!attack.getEffect().equals(null))
+                        if (attack.getEffect() != null)
                         {
                             if (attack.getDamage() >= 0)
                             {
@@ -489,7 +489,7 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    //HiddenMachine           "name type pp effect ousideeffect" - nota
+    //HiddenMachine
 
     public void cadastrarHiddenMachine(HiddenMachine hiddenMachine) throws InvalidoException, HiddenMachineExistenteException, TipoInvalidoException, HiddenMachinePPException, HiddenMachineEfeitoInvalidoException, HiddenMachineEfeitoExteriorInvalidoException {
         if (hiddenMachine != null)
@@ -500,9 +500,9 @@ public class Fachada
                 {
                     if (hiddenMachine.getPP() > 0)
                     {
-                        if (!hiddenMachine.getEffect().equals(null))
+                        if (hiddenMachine.getEffect() != null)
                         {
-                            if (!hiddenMachine.getOutEffect().equals(null))
+                            if (hiddenMachine.getOutEffect() != null)
                             {
                                 hiddenMachineNegocios.insert(hiddenMachine);
                             }
@@ -534,9 +534,9 @@ public class Fachada
                 {
                     if (hiddenMachine.getPP() > 0)
                     {
-                        if (!hiddenMachine.getEffect().equals(null))
+                        if (hiddenMachine.getEffect() != null)
                         {
-                            if (!hiddenMachine.getOutEffect().equals(null))
+                            if (hiddenMachine.getOutEffect() != null)
                             {
                                 hiddenMachineNegocios.update(hiddenMachine);
                             }
