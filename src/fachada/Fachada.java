@@ -71,7 +71,7 @@ public class Fachada
     public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException, AtaqueInexistenteException, InvalidoException, PokemonExistenteException, TipoInvalidoException, PokemonNumberInvalidoException {
         if (pokemon != null)
         {
-                if (!pokemonNegocios.exist(pokemon.getName()))
+            if (!pokemonNegocios.exist(pokemon.getName()))
             {
                 if (pokemon.existNumber())
                 {
