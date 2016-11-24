@@ -27,7 +27,7 @@ public class TrainerNegocios {
 
     //  Checa se o objeto existe, caso sim , retorna true
     public boolean exist(String nome) {
-        return trainerRepository.exist(nome);
+            return trainerRepository.exist(nome);
     }
 
     // Insere um novo objeto, caso ele não exista

@@ -122,7 +122,7 @@ public class Testes
                 Local local = new Local();
                 local.setName("area");
                 local.setRoute(-3);
-                Local.setCity("Pallet");
+                local.setCity("Pallet");
                 fachada.cadastrarLocal(local);
             } catch (LocalCidadeInvalidaException | LocalRotaInvalidaException | LocalInexistenteException | LocalExistenteException e) {
                 e.printStackTrace();

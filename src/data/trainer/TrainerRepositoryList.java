@@ -29,12 +29,16 @@ public class TrainerRepositoryList implements TrainerRepository {
     //  Metodo auxiliar, checa se o nome existe
     @Override
     public boolean exist(String name) {
-        if (name.equals(trainer.getName()))
-            return true;
-        else if (this.next == null)
-            return false;
+        if (this != null) {
+            if (name.equals(trainer.getName()))
+                return true;
+            else if (this.next == null)
+                return false;
+            else
+                return this.next.exist(name);
+        }
         else
-            return this.next.exist(name);
+            return false;
     }
 
     //  Procura o treinador pelo nome e retorna a quatidade de badges

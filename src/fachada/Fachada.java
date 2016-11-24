@@ -14,10 +14,7 @@ import negocio.trainer.Trainer;
 import negocio.trainer.TrainerNegocios;
 import tipo.Tipos;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by mathe on 23/11/2016.
@@ -39,17 +36,19 @@ public class Fachada
     {
         try
         {
-            BufferedReader in = new BufferedReader(new FileReader("config.txt"));
-            String tipo = in.readLine();
+            File file = new File("config.txt");
+            FileInputStream in = new FileInputStream(file);
+            char tipo = (char) in.read();
+            in.close();
 
-            if (tipo.equals("array") || tipo.equals("lista"))
+            if (tipo == 'a' || tipo == 'l')
             {
-                pokemonNegocios = new PokemonNegocios(tipo);
-                trainerNegocios = new TrainerNegocios(tipo);
-                attackNegocios = new MoveNegocios(tipo);
-                hiddenMachineNegocios = new MoveNegocios(tipo);
-                localNegocios = new LocalNegocios(tipo);
-                abilityNegocios = new AbilityNegocios(tipo);
+                pokemonNegocios = new PokemonNegocios(tipo == 'a' ? "array" : "lista");
+                trainerNegocios = new TrainerNegocios(tipo == 'a' ? "array" : "lista");
+                attackNegocios = new MoveNegocios(tipo == 'a' ? "array" : "lista");
+                hiddenMachineNegocios = new MoveNegocios(tipo == 'a' ? "array" : "lista");
+                localNegocios = new LocalNegocios(tipo == 'a' ? "array" : "lista");
+                abilityNegocios = new AbilityNegocios(tipo == 'a' ? "array" : "lista");
             }
 
         } catch (FileNotFoundException e) {
@@ -203,7 +202,7 @@ public class Fachada
     public void cadastrarTreinador(Trainer trainer) throws InvalidoException, TrainerExistenteException, TrainerBadgeInvalidoException {
         if (trainer != null)
         {
-            if (!trainerNegocios.exist(trainer.getName()))
+            if (trainerNegocios.exist(trainer.getName()))
             {
                 if (trainer.getBadge() >= 0)
                 {
@@ -590,9 +589,9 @@ public class Fachada
     public void removerHiddenMachine(HiddenMachine name) throws InvalidoException, HiddenMachineInexistenteException {
         if (name != null)
         {
-            if (hiddenMachineNegocios.exists(name))
+            if (hiddenMachineNegocios.exists(name.getName()))
             {
-                hiddenMachineNegocios.remove(name);
+                hiddenMachineNegocios.remove(name.getName());
             }
             else
                 throw new HiddenMachineInexistenteException();

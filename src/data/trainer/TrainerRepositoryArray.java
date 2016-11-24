@@ -23,9 +23,13 @@ public class TrainerRepositoryArray implements TrainerRepository{
     //  Metodo auxiliar de Procurar, checa se o nome existe
     @Override
     public boolean exist(String name) {
-        for (int i = 0; i < this.trainerArray.length; i++) {
-            if (name.equals(this.trainerArray[i].getName()))
-                return true;
+        if (this.trainerArray.length == 0)
+            return false;
+        else{
+            for (int i = 0; i < this.trainerArray.length; i++) {
+                if (name.equals(this.trainerArray[i].getName()))
+                    return true;
+            }
         }
         return false;
     }
