@@ -1,4 +1,5 @@
 import exceptions.*;
+import negocio.attack.Attack;
 import negocio.attack.HiddenMachine;
 import negocio.pokemon.Pokemon;
 import fachada.Fachada;
@@ -268,144 +269,85 @@ public class Testes
                 e.printStackTrace();
             }
 
-        try {
+            //CADASTRAR HIDDEN MACHINE nula
+            try {
             HiddenMachine hm = null;
             fachada.cadastrarHiddenMachine(hm);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException | HiddenMachinePPException e) {
             e.printStackTrace();
         }
 
+            //CADASTRAR ATTACK nulo
         try {
             Attack attack = null;
             fachada.cadastrarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
+            //CADASTRAR HIDDENMACHINE JA EXISTENTE
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 1, "ousideeffect", "effect");
             HiddenMachine hm2 = hm1;
             fachada.cadastrarHiddenMachine(hm1);
             fachada.cadastrarHiddenMachine(hm2);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException | HiddenMachinePPException e) {
             e.printStackTrace();
         }
 
+            //CADASTRAR ATTACK JA EXISTENTE
         try {
             Attack attack = new Attack("name", "fogo", 1, 2, "effect");
             Attack attack1 = attack;
             fachada.cadastrarAtaque(attack);
             fachada.cadastrarAtaque(attack1);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueExistenteException | AtaqueEfeitoInvalidoException | TipoInvalidoException | AtaqueDanoInvalidoException e) {
             e.printStackTrace();
         }
 
+            //Cadastrar hiddenmachine tipo inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "dorgado", 1, "ousideeffect", "effect");
             fachada.cadastrarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
         } catch (HiddenMachinePPException e) {
             e.printStackTrace();
         }
 
+            //Cadastrar ataque inválido
         try {
             Attack attack = new Attack("name", "dorgado", 1, 21, "effect");
             fachada.cadastrarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
+            //Cadastrar PP inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
             fachada.cadastrarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
+            //Cadastrar PP inválido
         try {
             Attack attack = new Attack("name", "fogo", -1, 21, "effect");
             fachada.cadastrarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
+        } catch (AtaquePPInvalidoException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
         } catch (TipoInvalidoException e) {
             e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
-            e.printStackTrace();
         }
-
+            //Cadastrar efeito inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
             fachada.cadastrarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException | HiddenMachinePPException e) {
             e.printStackTrace();
         }
+            //Cadastrar efeito inválido
         try {
             Attack attack = new Attack("name", "fogo", 2, 12, null);
             fachada.cadastrarAtaque(attack);
@@ -420,6 +362,7 @@ public class Testes
         } catch (AtaqueExistenteException e) {
             e.printStackTrace();
         }
+            //Cadastrar efeito exterior inválido
         try{
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
             fachada.cadastrarHiddenMachine(hm1);
@@ -434,6 +377,7 @@ public class Testes
         } catch (HiddenMachinePPException e) {
             e.printStackTrace();
         }
+            //Cadastrar dano inválido
         try{
             Attack attack = new Attack("name", "fogo", 2, -1, "effect");
             fachada.cadastrarAtaque(attack);
