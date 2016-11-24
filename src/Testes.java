@@ -413,8 +413,20 @@ public class Testes
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 1, "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e1) {
+            e1.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e1) {
+            e1.printStackTrace();
+        } catch (TipoInvalidoException e1) {
+            e1.printStackTrace();
+        } catch (HiddenMachineExistenteException e1) {
+            e1.printStackTrace();
+        } catch (HiddenMachineInexistenteException e1) {
+            e1.printStackTrace();
+        } catch (HiddenMachinePPException e1) {
+            e1.printStackTrace();
         }
-        }
+    }
 
 
             //Atualizar attack inexistente

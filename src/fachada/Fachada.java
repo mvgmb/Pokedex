@@ -553,7 +553,7 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    public void atualizarHiddenMachine(HiddenMachine hiddenMachine) throws InvalidoException, HiddenMachineExistenteException, TipoInvalidoException, HiddenMachinePPException, HiddenMachineEfeitoInvalidoException, HiddenMachineEfeitoExteriorInvalidoException {
+    public void atualizarHiddenMachine(HiddenMachine hiddenMachine) throws InvalidoException, HiddenMachineExistenteException, TipoInvalidoException, HiddenMachinePPException, HiddenMachineEfeitoInvalidoException, HiddenMachineEfeitoExteriorInvalidoException, HiddenMachineInexistenteException {
         if (hiddenMachine != null)
         {
             if (hiddenMachineNegocios.exists(hiddenMachine.getName()))
@@ -581,7 +581,7 @@ public class Fachada
                     throw new TipoInvalidoException();
             }
             else
-                throw new  HiddenMachineExistenteException();
+                throw new  HiddenMachineInexistenteException();
         }
         else
             throw new InvalidoException();
