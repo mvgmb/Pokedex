@@ -25,38 +25,38 @@ public class PokemonNegocios {
             throw new RepositorioInvalidoException();
     }
 
-    public boolean exist(Pokemon pokemon) {
-        return pokemonRepositorio.exist(pokemon);
+    public boolean exist(String name) {
+        return pokemonRepositorio.exist(name);
     }
 
     public void insert(Pokemon pokemon) throws PokemonExistenteException, TipoInvalidoException {
-        if (!arrayTipos.exist(pokemon.getType())) {
+        if (!arrayTipos.exist(pokemon.getName())) {
             throw new TipoInvalidoException();
-        } else if (!exist(pokemon))
+        } else if (!exist(pokemon.getName()))
             pokemonRepositorio.insert(pokemon);
         else
             throw new PokemonExistenteException();
     }
 
-    public void remove(Pokemon pokemon) throws PokemonInexistenteException
+    public void remove(String name) throws PokemonInexistenteException
     {
-        if (!exist(pokemon))
-            pokemonRepositorio.remove(pokemon);
+        if (exist(name))
+            pokemonRepositorio.remove(name);
         else
             throw new PokemonInexistenteException();
     }
 
-    public Pokemon search(Pokemon pokemon) throws PokemonInexistenteException
+    public Pokemon search(String name) throws PokemonInexistenteException
     {
-        if (!exist(pokemon))
-           return pokemonRepositorio.search(pokemon);
+        if (exist(name))
+           return pokemonRepositorio.search(name);
         else
             throw new PokemonInexistenteException();
     }
 
     public void update(Pokemon pokemon) throws PokemonInexistenteException
     {
-        if (!exist(pokemon))
+        if (exist(pokemon.getName()))
             pokemonRepositorio.update(pokemon);
         else
             throw new PokemonInexistenteException();

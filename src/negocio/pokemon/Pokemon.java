@@ -11,9 +11,10 @@ public class Pokemon {
     private String AbilityID;
 
     public Pokemon(int number, String name, String type, String Ability) {
-        this.number = number;
         this.name = name;
+        this.number = number;
         this.type = type;
+
         this.arrayMoveID = new String[4];
         this.arrayLocalID = new String[10];
         this.AbilityID = Ability;
@@ -123,5 +124,12 @@ public class Pokemon {
         }
         return false;
     }
+    public boolean existAbilityID(){
+        if (this.AbilityID != null){
+                return true;
+            }
+        return false;
+        }
+
 
 }

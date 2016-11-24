@@ -54,7 +54,7 @@ public class MoveNegocios {
         }
     }
 
-    public Attack search(String name) throws AttackInexistenteException {
+    public Move search(String name) throws AttackInexistenteException {
         if (this.attackRepositorio.exist(name)) {
             return this.attackRepositorio.search(name);
         } else {

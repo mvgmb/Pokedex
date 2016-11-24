@@ -7,9 +7,9 @@ public class PokemonRepositorioArray implements PokemonRepositorio
 {
     private Pokemon[] array = new Pokemon[0];
 
-    public boolean exist(Pokemon pokemon) {
+    public boolean exist(String name) {
         for (int i = 0; i < array.length; i++)
-            if (array[i] == pokemon)
+            if (array[i].getName().equals(name))
                 return true;
         return false;
     }
@@ -25,11 +25,11 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     }
 
     // remover um pokemon no array
-    public void remove(Pokemon number)
+    public void remove(String name)
     {
         Pokemon[] aux = new Pokemon[array.length - 1];
         for (int i = 0; i < array.length; i++)
-            if (array[i].getNumber() == number.getNumber())
+            if (array[i].getName() == name)
                 array[i] = array[array.length - 1];
         for (int i = 0; i < (array.length - 1); i++)
             aux[i] = array[i];
@@ -45,10 +45,10 @@ public class PokemonRepositorioArray implements PokemonRepositorio
     }
 
     // procurar um pokemon no array
-    public Pokemon search(Pokemon pokemon)
+    public Pokemon search(String name)
     {
         for (int i = 0; i < array.length; i++)
-            if (array[i].getNumber() == pokemon.getNumber())
+            if (array[i].getName() == name)
                 return array[i];
         return null;
     }

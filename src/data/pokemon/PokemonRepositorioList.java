@@ -13,13 +13,13 @@ public class PokemonRepositorioList implements PokemonRepositorio
         this.pokemon = null;
     }
 
-    public boolean exist(Pokemon pokemon) {
-        if (this.pokemon.equals(pokemon))
+    public boolean exist(String name) {
+        if (this.pokemon.getName().equals(name))
             return true;
         else if (this.node == null)
             return false;
         else
-            return this.node.exist(pokemon);
+            return this.node.exist(name);
     }
 
     public void insert(Pokemon pokemon)
@@ -33,23 +33,23 @@ public class PokemonRepositorioList implements PokemonRepositorio
             this.node.insert(pokemon);
     }
 
-    public void remove(Pokemon pokemon) {
+    public void remove(String name) {
         if (this.pokemon != null) {
-            if (this.pokemon.getNumber() == pokemon.getNumber()) {
+            if (this.pokemon.getName().equals(name)) {
                 this.pokemon = this.node.pokemon;
                 this.node = this.node.node;
             } else
-                this.node.remove(pokemon);
+                this.node.remove(name);
         }
     }
 
-    public Pokemon search(Pokemon pokemon) {
-        if (this.pokemon.getNumber() == pokemon.getNumber())
+    public Pokemon search(String name) {
+        if (this.pokemon.getName().equals(name))
             return this.pokemon;
         else if (this.node == null) {
             return null;
         } else
-            return this.node.search(pokemon);
+            return this.node.search(name    );
     }
 
     public void update(Pokemon pokemon) {

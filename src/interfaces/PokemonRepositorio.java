@@ -5,11 +5,11 @@ import negocio.pokemon.Pokemon;
 public interface PokemonRepositorio {
     void insert(Pokemon pokemon);
 
-    void remove(Pokemon pokemon);
+    void remove(String name);
 
-    Pokemon search(Pokemon pokemon);
+    Pokemon search(String name);
 
     void update(Pokemon pokemon);
 
-    boolean exist(Pokemon pokemon);
+    boolean exist(String name);
 }
