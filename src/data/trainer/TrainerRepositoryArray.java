@@ -16,7 +16,7 @@ public class TrainerRepositoryArray implements TrainerRepository{
         for (int i = 0; i < this.trainerArray.length; i++) {
             aux[i] = this.trainerArray[i];
         }
-        aux[this.trainerArray.length + 1] = coach;
+        aux[this.trainerArray.length] = coach;
         this.trainerArray = aux;
     }
 

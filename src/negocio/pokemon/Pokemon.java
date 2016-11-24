@@ -3,14 +3,14 @@ package negocio.pokemon;
 import negocio.attack.MoveNegocios;
 
 public class Pokemon {
-    private int number;
+    private String number;
     private String name;
     private String type;
     private String[] arrayLocalID;
     private String[] arrayMoveID;
     private String AbilityID;
 
-    public Pokemon(int number, String name, String type, String Ability) {
+    public Pokemon(String number, String name, String type, String Ability) {
         this.name = name;
         this.number = number;
         this.type = type;
@@ -20,11 +20,11 @@ public class Pokemon {
         this.AbilityID = Ability;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -117,7 +117,7 @@ public class Pokemon {
     }
     public boolean existNumber(){
         for (int i = 0; i< 4; i++){
-            if (this.number != 0){
+            if (Integer.parseInt(this.number) != 0){
                 return true;
             }
         }

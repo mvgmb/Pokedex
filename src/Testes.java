@@ -23,7 +23,7 @@ public class Testes
 
             // Tipo invalido
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Amor", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Amor", "Static");
                 test.setArrayMoveID("ElectroBall");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
@@ -32,7 +32,7 @@ public class Testes
             }
             // Sem ataque
             try {
-                Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
+                Pokemon test = new Pokemon("123", "Pikachu", "Eletrico", "Static");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
             } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException | PokemonNumberInexistenteException | PokemonIDHabilidadeInexistenteException | PokemonNumberInvalidoException e) {
@@ -255,7 +255,7 @@ public class Testes
                 hiddenMachine.setEffect("corta");
                 hiddenMachine.setOutEffect("sangra");
                 hiddenMachine.setPP(3);
-                fachada.removerHiddenMachine(hiddenMachine);
+                fachada.removerHiddenMachine(hiddenMachine.getName());
             } catch (HiddenMachineInexistenteException e) {
                 e.printStackTrace();
             }
@@ -405,7 +405,7 @@ public class Testes
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "joao", 1, "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
         }
 
@@ -421,7 +421,7 @@ public class Testes
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
         }
 
@@ -437,7 +437,7 @@ public class Testes
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
         }
 
@@ -453,7 +453,7 @@ public class Testes
         try{
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException | HiddenMachineInexistenteException e) {
             e.printStackTrace();
         }
 

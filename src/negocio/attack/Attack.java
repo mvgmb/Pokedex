@@ -9,20 +9,20 @@ import abstracts.Move;
 public class Attack extends Move {
     private String name;
     private String type;
-    private int pp;
+    private String pp;
     private String effect;
-    private int damage;
+    private String damage;
 
     public Attack() {
 
         this.name = null;
         this.type = null;
-        this.pp = 0;
-        this.damage = 0;
+        this.pp = null;
+        this.damage = null;
         this.effect = null;
 
     }
-    public Attack(String name, String type, int pp, int damage, String effect) {
+    public Attack(String name, String type, String pp, String damage, String effect) {
 
         this.name = name;
         this.type = type;
@@ -54,19 +54,19 @@ public class Attack extends Move {
         this.type = type;
     }
 
-    public int getPP() {
+    public String getPP() {
         return this.pp;
     }
 
-    public void setPP(int pp) {
+    public void setPP(String pp) {
         this.pp = pp;
     }
 
-    public int getDamage() {
+    public String getDamage() {
         return this.damage;
     }
 
-    public void setDamage(int damage) {
+    public void setDamage(String damage) {
         this.damage = damage;
     }
 }

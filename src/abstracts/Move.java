@@ -6,7 +6,7 @@ package abstracts;
 public abstract class Move {
 
     private String name;
-    private int pp;
+    private String pp;
     private String effect;
     private String type;
 
@@ -14,9 +14,9 @@ public abstract class Move {
 
     public abstract String getName();
 
-    public abstract void setPP(int pp);
+    public abstract void setPP(String pp);
 
-    public abstract int getPP();
+    public abstract String getPP();
 
     public abstract void setEffect(String effect);
 

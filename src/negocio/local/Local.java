@@ -6,10 +6,10 @@ package negocio.local;
 public class Local {
 
     private String name;
-    private int route;
+    private String route;
     private String city;
 
-    public Local(String name, String city, int route){
+    public Local(String name, String city, String route){
         this.name = name;
         this.city = city;
         this.route = route;
@@ -18,7 +18,7 @@ public class Local {
     public Local(){
         this.name = null;
         this.city = null;
-        this.route = 0;
+        this.route = null;
     }
 
     public String getName(){
@@ -35,10 +35,10 @@ public class Local {
     public void setCity(String city){
         this.city = city;
     }
-    public int getRoute(){
+    public String getRoute(){
         return this.route;
     }
-    public void setRoute(int route){
+    public void setRoute(String route){
         this.route = route;
     }
 

@@ -9,7 +9,7 @@ import abstracts.Move;
 public class HiddenMachine extends Move {
     private String name;
     private String type;
-    private int pp;
+    private String pp;
     private String effect;
     private String outsideEffect;
 
@@ -17,13 +17,13 @@ public class HiddenMachine extends Move {
 
         this.name = null;
         this.type = null;
-        this.pp = 0;
+        this.pp = null;
         this.outsideEffect = null;
         this.effect = null;
 
     }
 
-    public HiddenMachine(String name, String type, int pp, String outSideEffect, String effect) {
+    public HiddenMachine(String name, String type, String pp, String outSideEffect, String effect) {
 
         this.name = name;
         this.type = type;
@@ -55,11 +55,11 @@ public class HiddenMachine extends Move {
         this.type = type;
     }
 
-    public int getPP() {
+    public String getPP() {
         return this.pp;
     }
 
-    public void setPP(int pp) {
+    public void setPP(String pp) {
         this.pp = pp;
     }
 

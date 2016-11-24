@@ -74,7 +74,7 @@ public class Fachada
             {
                 if (pokemon.existNumber())
                 {
-                    if (pokemon.getNumber() > 0)
+                    if (Integer.parseInt(pokemon.getNumber()) > 0)
                     {
                         if (type.exist(pokemon.getType()))
                         {
@@ -118,7 +118,7 @@ public class Fachada
             {
                 if (pokemon.existNumber())
                 {
-                    if (pokemon.getNumber() > 0)
+                    if (Integer.parseInt(pokemon.getNumber()) > 0)
                     {
                         if (type.exist(pokemon.getType()))
                         {
@@ -202,7 +202,7 @@ public class Fachada
     public void cadastrarTreinador(Trainer trainer) throws InvalidoException, TrainerExistenteException, TrainerBadgeInvalidoException {
         if (trainer != null)
         {
-            if (trainerNegocios.exist(trainer.getName()))
+            if (!trainerNegocios.exist(trainer.getName()))
             {
                 if (trainer.getBadge() >= 0)
                 {
@@ -283,7 +283,7 @@ public class Fachada
         {
             if (!localNegocios.exist(local.getName()))
             {
-                if (local.getRoute() >= 0)
+                if (Integer.parseInt(local.getRoute()) >= 0)
                 {
                     if (local.getCity() != null)
                     {
@@ -306,7 +306,7 @@ public class Fachada
         {
             if (localNegocios.exist(local.getName()))
             {
-                if (local.getRoute() >= 0)
+                if (Integer.parseInt(local.getRoute()) >= 0)
                 {
                     if (local.getCity() != null)
                     {
@@ -427,11 +427,11 @@ public class Fachada
             {
                 if (type.exist(attack.getType()))
                 {
-                    if (attack.getPP() > 0)
+                    if (Integer.parseInt(attack.getPP()) > 0)
                     {
                         if (attack.getEffect() != null)
                         {
-                            if (attack.getDamage() >= 0)
+                            if (Integer.parseInt(attack.getDamage()) >= 0)
                             {
                                 attackNegocios.insert(attack);
                             }
@@ -461,11 +461,11 @@ public class Fachada
             {
                 if (type.exist(attack.getType()))
                 {
-                    if (attack.getPP() > 0)
+                    if (Integer.parseInt(attack.getPP()) > 0)
                     {
                         if (attack.getEffect() != null)
                         {
-                            if (attack.getDamage() >= 0)
+                            if (Integer.parseInt(attack.getDamage()) >= 0)
                             {
                                 attackNegocios.update(attack);
                             }
@@ -525,7 +525,7 @@ public class Fachada
             {
                 if (type.exist(hiddenMachine.getType()))
                 {
-                    if (hiddenMachine.getPP() > 0)
+                    if (Integer.parseInt(hiddenMachine.getPP()) > 0)
                     {
                         if (hiddenMachine.getEffect() != null)
                         {
@@ -559,7 +559,7 @@ public class Fachada
             {
                 if (type.exist(hiddenMachine.getType()))
                 {
-                    if (hiddenMachine.getPP() > 0)
+                    if (Integer.parseInt(hiddenMachine.getPP()) > 0)
                     {
                         if (hiddenMachine.getEffect() != null)
                         {
@@ -586,12 +586,12 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    public void removerHiddenMachine(HiddenMachine name) throws InvalidoException, HiddenMachineInexistenteException {
+    public void removerHiddenMachine(String name) throws InvalidoException, HiddenMachineInexistenteException {
         if (name != null)
         {
-            if (hiddenMachineNegocios.exists(name.getName()))
+            if (hiddenMachineNegocios.exists(name))
             {
-                hiddenMachineNegocios.remove(name.getName());
+                hiddenMachineNegocios.remove(name);
             }
             else
                 throw new HiddenMachineInexistenteException();
