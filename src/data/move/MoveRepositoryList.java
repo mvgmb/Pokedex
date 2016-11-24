@@ -10,7 +10,8 @@ public class MoveRepositoryList implements MoveRepository {
 	public MoveRepositoryList() {
 		this.nodo=null;
 	}
-	
+
+	// Insere um novo nodo
 	public void insert(Move attack) {
 		if (this.nodo == null) {
 			Node aux = new Node(attack);
@@ -20,7 +21,8 @@ public class MoveRepositoryList implements MoveRepository {
 			this.nodo.add(aux);
 		}
 	}
-	
+
+	// remove o nodo
 	public void remove(String attack) {
 		if (this.nodo.attack.getName().equalsIgnoreCase(attack)) {
 			Node aux = this.nodo.prox;
@@ -29,11 +31,13 @@ public class MoveRepositoryList implements MoveRepository {
 			this.nodo.remove(attack);
 		}
 	}
-	
+
+	//procura o move no nodo
 	public Move search(String name) {
 		return this.nodo.search(name);
 	}
-	
+
+	// atualiza o move na lista
 	public void update(Move attack) {
 		if (this.nodo.attack == attack) {
 			Node aux = new Node(attack);
@@ -43,11 +47,13 @@ public class MoveRepositoryList implements MoveRepository {
 			this.nodo.update(attack);
 		}
 	}
-	
+
+	// checa se o nodo existe
 	public boolean exist(String attack) {
 		return this.nodo.exist(attack);
 	}
-	
+
+	// classe que carrega as informações, o metodo de subclasse serve para evitar um nodo inútil no final da lista
 	class Node {
 		
 		private Move attack;
@@ -62,7 +68,8 @@ public class MoveRepositoryList implements MoveRepository {
 			this.attack = attack;
 			this.prox = null;
 		}
-		
+
+		// usa o nodo do metodo insert para adicionar nesta lista
 		public void add(Node nodo) {
 			if (this.prox == null) {
 				this.prox = nodo;
@@ -70,7 +77,8 @@ public class MoveRepositoryList implements MoveRepository {
 				this.prox.add(nodo);
 			}
 		}
-		
+
+		// remove o nodo desejado da lista
 		public void remove(String attack) {
 			if (this.prox.prox == null) {
 				if (this.prox.attack.getName().equalsIgnoreCase(attack)) {
@@ -84,7 +92,8 @@ public class MoveRepositoryList implements MoveRepository {
 				}
 			}
 		}
-		
+
+		// procura o movimento desejado na lista
 		public Move search(String name) {
 			Move aux = null;
 			if (this.prox == null) {
@@ -100,7 +109,8 @@ public class MoveRepositoryList implements MoveRepository {
 			}
 			return aux;
 		}
-		
+
+		// faz a atualização na lista
 		public void update(Move attack) {
 			if (this.prox.prox == null) {
 				if (this.prox.attack==attack) {
@@ -116,7 +126,8 @@ public class MoveRepositoryList implements MoveRepository {
 				}
 			}
 		}
-		
+
+		// checa se o movimento existe
 		public boolean exist(String attack) {
 			boolean exists = false;
 			if (this.prox == null) {

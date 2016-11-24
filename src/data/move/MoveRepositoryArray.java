@@ -4,12 +4,14 @@ import interfaces.MoveRepository;
 import abstracts.Move;
 
 public class MoveRepositoryArray implements MoveRepository {
+
     private Move[] array;
 
     public MoveRepositoryArray() {
         array = new Move[0];
     }
 
+    //Insere uma nova Move no array
     public void insert(Move attack) {
         Move[] aux = new Move[this.array.length + 1];
         for (int i = 0; i < this.array.length; i++) {
@@ -19,6 +21,7 @@ public class MoveRepositoryArray implements MoveRepository {
         this.array = aux;
     }
 
+    //Remove uma Move do array
     public void remove(String name) {
         for (int i = 0; i < this.array.length; i++) {
             if (this.array[i].getName() == name) {
@@ -35,15 +38,17 @@ public class MoveRepositoryArray implements MoveRepository {
         }
     }
 
+    //Atualiza um Move no array
     public void update(Move attack) {
         for (int i = 0; i < this.array.length; i++) {
             if (this.array[i].getName().equals(attack.getName())) {
                 this.array[i] = attack;
-                break;
+                //break;
             }
         }
     }
 
+    //Procura um Move no array
     public Move search(String name) {
         Move aux = null;
         for (int i = 0; i < this.array.length; i++) {
@@ -54,6 +59,7 @@ public class MoveRepositoryArray implements MoveRepository {
         return aux;
     }
 
+    //Verifica se um Move existe
     public boolean exist(String attack) {
         boolean exists = false;
         for (int i = 0; i < this.array.length; i++) {
