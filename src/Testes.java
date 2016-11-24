@@ -397,153 +397,87 @@ public class Testes
         try {
             Attack attack = new Attack("name", "fogo", 1, 2, "effect");
             fachada.atualizarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueInexistenteException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueExistenteException | AtaqueDanoInvalidoException e) {
             e.printStackTrace();
         }
 
-            //Atualizar hiddenmachine tipo inválido
+        //Atualizar hiddenmachine tipo inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "joao", 1, "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
-            //Atualizar attack tipo inválido
+        //Atualizar attack tipo inválido
         try {
             Attack attack = new Attack("name", "dorgado", 1, 21, "effect");
             fachada.atualizarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueInexistenteException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
         }
 
-            //Atualizar pp inválido
+        //Atualizar pp inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
-            //Atualizar pp inválido
+        //Atualizar pp inválido
         try {
             Attack attack = new Attack("name", "fogo", -1, 21, "effect");
             fachada.atualizarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueInexistenteException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueInexistenteException | AtaqueDanoInvalidoException | AtaqueEfeitoInvalidoException | TipoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
         }
 
-            //Atualizar efeito inválido
+        //Atualizar efeito inválido
         try {
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
-            //Atualizar efeito inválido
+        //Atualizar efeito inválido
         try {
             Attack attack = new Attack("name", "fogo", 2, 12, null);
             fachada.atualizarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueInexistenteException e) {
-            e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
         }
 
-            //Atualizar efeito exterior inválido
+        //Atualizar efeito exterior inválido
         try{
             HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
             fachada.atualizarHiddenMachine(hm1);
-        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (HiddenMachineExistenteException e) {
-            e.printStackTrace();
-        } catch (HiddenMachinePPException e) {
+        } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | HiddenMachinePPException | TipoInvalidoException e) {
             e.printStackTrace();
         }
 
-            //Atualizar dano inválido
+        //Atualizar dano inválido
         try{
             Attack attack = new Attack("name", "fogo", 2, -1, "effect");
             fachada.atualizarAtaque(attack);
-        } catch (AtaquePPInvalidoException e) {
+        } catch (AtaquePPInvalidoException | AtaqueInexistenteException | TipoInvalidoException | AtaqueEfeitoInvalidoException | AtaqueDanoInvalidoException | AtaqueExistenteException e) {
             e.printStackTrace();
+        }
+
+        //Remover attack inexistente
+        try {
+            Attack attack = null;
+            fachada.removerAtaque("ataq");
         } catch (AtaqueInexistenteException e) {
             e.printStackTrace();
-        } catch (AtaqueDanoInvalidoException e) {
-            e.printStackTrace();
-        } catch (TipoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueEfeitoInvalidoException e) {
-            e.printStackTrace();
-        } catch (AtaqueExistenteException e) {
+        }
+
+        //Procurar attack inexistente
+        try {
+            Attack attack = null;
+            fachada.procurarAtaque("ataq");
+        } catch (AtaqueInexistenteException e) {
             e.printStackTrace();
         }
     }
