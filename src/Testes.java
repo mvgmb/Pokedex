@@ -399,9 +399,11 @@ public class Testes
             fachada.atualizarHiddenMachine(hm);
         } catch (HiddenMachineEfeitoExteriorInvalidoException | HiddenMachineEfeitoInvalidoException | HiddenMachineExistenteException | TipoInvalidoException | HiddenMachinePPException e) {
             e.printStackTrace();
+        } catch (HiddenMachineInexistenteException e1) {
+            e1.printStackTrace();
         }
 
-            //Atualizar attack nulo
+        //Atualizar attack nulo
         try {
             Attack attack = null;
             fachada.atualizarAtaque(attack);
