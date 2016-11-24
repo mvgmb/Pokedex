@@ -18,7 +18,7 @@ public class LocalRepositoryArray implements LocalRepository {
         }
         this.localArray = aux;
     }
-    // Checa se já existe, método SEARCH utiliza
+    // Checa se já existe
     public boolean exist(String name){
         for(int i = 0; i < this.localArray.length; i++){
             if(name.equals(this.localArray[i].getName())){

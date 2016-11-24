@@ -4,8 +4,8 @@ import data.ability.AbilityRepositoryArray;
 import data.ability.AbilityRepositoryList;
 import interfaces.AbilityRepository;
 import exceptions.RepositorioInvalidoException;
-import exceptions.AbilityInexistenteException;
-import exceptions.AbilityExistenteException;
+import exceptions.HabilidadeInexistenteException;
+import exceptions.HabilidadeExistenteException;
 
 public class AbilityNegocios {
     private AbilityRepository abilityRepository;
@@ -24,32 +24,32 @@ public class AbilityNegocios {
         return abilityRepository.exist(name);
     }
 
-    public void insert (Ability ability) throws AbilityExistenteException {
+    public void insert (Ability ability) throws HabilidadeExistenteException {
         if (!exist(ability.getName()))
             abilityRepository.insert(ability);
         else
-            throw new AbilityExistenteException();
+            throw new HabilidadeExistenteException();
     }
 
-    public Ability search (String name) throws AbilityInexistenteException {
+    public Ability search (String name) throws HabilidadeInexistenteException {
         if (exist(name))
             return abilityRepository.search(name);
         else
-            throw new AbilityInexistenteException();
+            throw new HabilidadeInexistenteException();
     }
 
-    public void remove (String name) throws AbilityInexistenteException {
+    public void remove (String name) throws HabilidadeInexistenteException {
         if (exist(name))
             abilityRepository.remove(name);
         else
-            throw new AbilityInexistenteException();
+            throw new HabilidadeInexistenteException();
     }
 
-    public void update (Ability ability) throws AbilityInexistenteException {
+    public void update (Ability ability) throws HabilidadeInexistenteException {
         if (exist(ability.getName()))
             abilityRepository.update(ability);
         else
-            throw new AbilityInexistenteException();
+            throw new HabilidadeInexistenteException();
 
     }
 
