@@ -59,6 +59,8 @@ public class Fachada
         return ourInstance;
     }
 
+    //Pokémon ----------------------
+
     public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException,AttackInexistenteException,InvalidoException, PokemonExistenteException, TipoInvalidoException {
         if (pokemon != null)
         {
@@ -146,7 +148,8 @@ public class Fachada
         else
             throw new InvalidoException();
     }
-    public void remove(String name) throws PokemonNumberInexistenteException, PokemonIDHabilidadeInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException {
+
+    public void remove(String name) throws PokemonInexistenteException, InvalidoException {
         if (name != null)
         {
             if (pokemonNegocios.exist(name))
@@ -154,11 +157,27 @@ public class Fachada
                 pokemonNegocios.remove(name);
             }
             else
-                throw new PokemonExistenteException();
+                throw new PokemonInexistenteException();
         }
         else
             throw new InvalidoException();
     }
+
+    public void search(String name) throws InvalidoException, PokemonInexistenteException {
+        if (name != null)
+        {
+            if (pokemonNegocios.exist(name))
+            {
+                pokemonNegocios.search(name);
+            }
+            else
+                throw new PokemonInexistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    //Trainer ----------------------
 
 
 

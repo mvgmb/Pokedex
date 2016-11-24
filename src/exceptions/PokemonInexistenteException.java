@@ -5,6 +5,6 @@ package exceptions;
  */
 public class PokemonInexistenteException extends Exception {
     public PokemonInexistenteException() {
-        super("Pokemon Inexistente");
+        super("Pokemon inexistente");
     }
 }

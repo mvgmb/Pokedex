@@ -5,6 +5,6 @@ package exceptions;
  */
 public class PokemonExistenteException extends Exception {
     public PokemonExistenteException() {
-        super("Esse Pokemon já existe");
+        super("Esse Pokémon já existe");
     }
 }
