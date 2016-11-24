@@ -393,5 +393,193 @@ public class Testes
             e.printStackTrace();
         }
 
+        try {
+            HiddenMachine hm = null;
+            fachada.atualizarHiddenMachine(hm);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Attack attack = null;
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 1, "ousideeffect", "effect");
+            fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Attack attack = new Attack("name", "fogo", 1, 2, "effect");
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            HiddenMachine hm1 = new HiddenMachine("name", "joao", 1, "ousideeffect", "effect");
+            fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Attack attack = new Attack("name", "dorgado", 1, 21, "effect");
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            HiddenMachine hm1 = new HiddenMachine("name", "dorgado", -1, "ousideeffect", "effect");
+            fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Attack attack = new Attack("name", "fogo", -1, 21, "effect");
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, "ousideeffect", null);
+            fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+        try {
+            Attack attack = new Attack("name", "fogo", 2, 12, null);
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        }
+        try{
+            HiddenMachine hm1 = new HiddenMachine("name", "fogo", 2, null, "effect");
+            fachada.atualizarHiddenMachine(hm1);
+        } catch (HiddenMachineEfeitoExteriorInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (HiddenMachineExistenteException e) {
+            e.printStackTrace();
+        } catch (HiddenMachinePPException e) {
+            e.printStackTrace();
+        }
+        try{
+            Attack attack = new Attack("name", "fogo", 2, -1, "effect");
+            fachada.atualizarAtaque(attack);
+        } catch (AtaquePPInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueInexistenteException e) {
+            e.printStackTrace();
+        } catch (AtaqueDanoInvalidoException e) {
+            e.printStackTrace();
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueEfeitoInvalidoException e) {
+            e.printStackTrace();
+        } catch (AtaqueExistenteException e) {
+            e.printStackTrace();
+        }
     }
 }
