@@ -12,4 +12,6 @@ public interface PokemonRepositorio {
     void update(Pokemon pokemon);
 
     boolean exist(String name);
+
+    Pokemon[] returnContent();
 }
