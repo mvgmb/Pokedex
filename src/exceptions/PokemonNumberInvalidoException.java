@@ -5,6 +5,6 @@ package exceptions;
  */
 public class PokemonNumberInvalidoException extends Exception {
     public PokemonNumberInvalidoException(){
-        super("Número do pokémon inválido");
+        super("Número do Pokémon inválido");
     }
 }

@@ -33,34 +33,22 @@ public class TrainerNegocios {
     }
 
     // Insere um novo objeto, caso ele na não exista
-    public void insert(Trainer trainer) throws TrainerExistenteException {
-        if (!exist(trainer.getName())) {
-            trainerRepository.insert(trainer);
-        } else
-            throw new TrainerExistenteException();
+    public void insert(Trainer trainer) {
+        trainerRepository.insert(trainer);
     }
 
     //  Procura um objeto pelo nome e retorna a quantidade de badges, caso ele exista
-    public Trainer search(String name) throws TrainerInexistenteException {
-        if (exist(name)) {
-            return trainerRepository.search(name);
-        } else
-            throw new TrainerInexistenteException();
+    public Trainer search(String name) {
+        return trainerRepository.search(name);
     }
 
     //  Atualiza um objeto, caso ele exista
-    public void update(Trainer trainer) throws TrainerInexistenteException {
-        if (exist(trainer.getName())) {
-            trainerRepository.update(trainer);
-        } else
-            throw new TrainerInexistenteException();
+    public void update(Trainer trainer) {
+        trainerRepository.update(trainer);
     }
 
     //  Remove um objeto caso ele exista
-    public void remove(String name) throws TrainerInexistenteException {
-        if (exist(name)) {
+    public void remove(String name){
             trainerRepository.remove(name);
-        } else
-            throw new TrainerInexistenteException();
     }
 }

@@ -6,14 +6,14 @@ import abstracts.Move;
  * Created by mathe on 22/11/2016.
  */
 
-public class HM extends Move {
+public class HiddenMachine extends Move {
     private String name;
     private String type;
     private int pp;
     private String effect;
     private String outsideEffect;
 
-    public HM() {
+    public HiddenMachine() {
 
         this.name = null;
         this.type = null;

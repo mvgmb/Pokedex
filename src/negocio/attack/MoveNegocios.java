@@ -11,55 +11,37 @@ import abstracts.Move;
  */
 public class MoveNegocios {
 
-    private MoveRepository attackRepositorio;
+    private MoveRepository moveRepositorio;
     private Tipos arrayTipos;
 
     public MoveNegocios(String name) throws RepositorioInvalidoException {
         if (name.equals("array")) {
-            this.attackRepositorio = new MoveRepositoryArray();
+            this.moveRepositorio = new MoveRepositoryArray();
         } else if (name.equals("lista")) {
-            this.attackRepositorio = new MoveRepositoryList();
+            this.moveRepositorio = new MoveRepositoryList();
         } else {
             throw new RepositorioInvalidoException();
         }
     }
 
     public boolean exists(String attack) {
-        return this.attackRepositorio.exist(attack);
+        return this.moveRepositorio.exist(attack);
     }
 
-    public void insert(Attack attack) throws AttackExistenteException, TipoInvalidoException {
-        if (!arrayTipos.exist(attack.getType())) {
-            throw new TipoInvalidoException();
-        } else if (exists(attack.getName())) {
-            throw new AttackExistenteException();
-        } else {
-            this.attackRepositorio.insert(attack);
-        }
+    public void insert(Move move) {
+            this.moveRepositorio.insert(move);
     }
 
-    public void remove(String name) throws AttackInexistenteException {
-        if (this.attackRepositorio.exist(name)) {
-            this.attackRepositorio.remove(name);
-        } else {
-            throw new AttackInexistenteException();
-        }
+    public void remove(String name) {
+            this.moveRepositorio.remove(name);
     }
 
-    public void update(Attack attack) throws AttackInexistenteException {
-        if (this.attackRepositorio.exist(attack.getName())) {
-            this.attackRepositorio.update(attack);
-        } else {
-            throw new AttackInexistenteException();
-        }
+    public void update(Move move) {
+            this.moveRepositorio.update(move);
     }
 
-    public Move search(String name) throws AttackInexistenteException {
-        if (this.attackRepositorio.exist(name)) {
-            return this.attackRepositorio.search(name);
-        } else {
-            throw new AttackInexistenteException();
-        }
+    public Move search(String name) {
+            return this.moveRepositorio.search(name);
     }
 
 }

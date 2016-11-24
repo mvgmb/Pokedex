@@ -3,6 +3,8 @@ package fachada;
 import exceptions.*;
 import negocio.ability.Ability;
 import negocio.ability.AbilityNegocios;
+import negocio.attack.Attack;
+import negocio.attack.HiddenMachine;
 import negocio.attack.MoveNegocios;
 import negocio.local.Local;
 import negocio.local.LocalNegocios;
@@ -16,7 +18,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.annotation.IncompleteAnnotationException;
 
 /**
  * Created by mathe on 23/11/2016.
@@ -29,7 +30,8 @@ public class Fachada
     private PokemonNegocios pokemonNegocios;
     private Tipos type;
     private TrainerNegocios trainerNegocios;
-    private MoveNegocios moveNegocios;
+    private MoveNegocios attackNegocios;
+    private MoveNegocios hiddenMachineNegocios;
     private LocalNegocios localNegocios;
     private AbilityNegocios abilityNegocios;
 
@@ -44,7 +46,8 @@ public class Fachada
             {
                 pokemonNegocios = new PokemonNegocios(tipo);
                 trainerNegocios = new TrainerNegocios(tipo);
-                moveNegocios = new MoveNegocios(tipo);
+                attackNegocios = new MoveNegocios(tipo);
+                hiddenMachineNegocios = new MoveNegocios(tipo);
                 localNegocios = new LocalNegocios(tipo);
                 abilityNegocios = new AbilityNegocios(tipo);
             }
@@ -65,7 +68,7 @@ public class Fachada
 
     //Pokémon
 
-    public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonExistenteException, TipoInvalidoException, PokemonNumberInvalidoException {
+    public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException, AtaqueInexistenteException, InvalidoException, PokemonExistenteException, TipoInvalidoException, PokemonNumberInvalidoException {
         if (pokemon != null)
         {
                 if (!pokemonNegocios.exist(pokemon.getName()))
@@ -91,7 +94,7 @@ public class Fachada
                                     throw new LocalInexistenteException();
                             }
                             else
-                                throw new AttackInexistenteException();
+                                throw new AtaqueInexistenteException();
                         }
                         else
                             throw new TipoInvalidoException();
@@ -109,7 +112,7 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    public void atualizarPokemon(Pokemon pokemon) throws PokemonNumberInexistenteException, PokemonIDHabilidadeInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException, PokemonNumberInvalidoException {
+    public void atualizarPokemon(Pokemon pokemon) throws PokemonNumberInexistenteException, PokemonIDHabilidadeInexistenteException, LocalInexistenteException, AtaqueInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException, PokemonNumberInvalidoException {
         if (pokemon != null)
         {
             if (pokemonNegocios.exist(pokemon.getName()))
@@ -135,7 +138,7 @@ public class Fachada
                                     throw new LocalInexistenteException();
                             }
                             else
-                                throw new AttackInexistenteException();
+                                throw new AtaqueInexistenteException();
                         }
                         else
                             throw new TipoInvalidoException();
@@ -375,7 +378,7 @@ public class Fachada
             throw new InvalidoException();
     }
 
-     public Ability procurarHabilidade(String name) throws InvalidoException, HabilidadeInexistenteException {
+    public Ability procurarHabilidade(String name) throws InvalidoException, HabilidadeInexistenteException {
          if (name != null)
          {
              if (abilityNegocios.exist(name))
@@ -387,4 +390,200 @@ public class Fachada
          }
          else throw new InvalidoException();
      }
+
+    //Attack
+
+    public void cadastrarAtaque(Attack attack) throws InvalidoException, AtaqueExistenteException, TipoInvalidoException, AtaquePPInvalidoException, AtaqueEfeitoInvalidoException, AtaqueDanoInvalidoException {
+        if (attack != null)
+        {
+            if (!attackNegocios.exists(attack.getName()))
+            {
+                if (type.exist(attack.getType()))
+                {
+                    if (attack.getPP() > 0)
+                    {
+                        if (!attack.getEffect().equals(null))
+                        {
+                            if (attack.getDamage() >= 0)
+                            {
+                                attackNegocios.insert(attack);
+                            }
+                            else
+                                throw new AtaqueDanoInvalidoException();
+                        }
+                        else
+                            throw new AtaqueEfeitoInvalidoException();
+                    }
+                    else
+                        throw new AtaquePPInvalidoException();
+                }
+                else
+                    throw new TipoInvalidoException();
+            }
+            else
+                throw new AtaqueExistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public void atualizarAtaque(Attack attack) throws InvalidoException, AtaqueExistenteException, TipoInvalidoException, AtaquePPInvalidoException, AtaqueEfeitoInvalidoException, AtaqueDanoInvalidoException, AtaqueInexistenteException {
+        if (attack != null)
+        {
+            if (attackNegocios.exists(attack.getName()))
+            {
+                if (type.exist(attack.getType()))
+                {
+                    if (attack.getPP() > 0)
+                    {
+                        if (!attack.getEffect().equals(null))
+                        {
+                            if (attack.getDamage() >= 0)
+                            {
+                                attackNegocios.update(attack);
+                            }
+                            else
+                                throw new AtaqueDanoInvalidoException();
+                        }
+                        else
+                            throw new AtaqueEfeitoInvalidoException();
+                    }
+                    else
+                        throw new AtaquePPInvalidoException();
+                }
+                else
+                    throw new TipoInvalidoException();
+            }
+            else
+                throw new AtaqueExistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public void removerAtaque(String name) throws InvalidoException, AtaqueInexistenteException {
+        if (name != null)
+        {
+            if(attackNegocios.exists(name))
+            {
+                attackNegocios.remove(name);
+            }
+            else
+                throw new AtaqueInexistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public Attack procurarAtaque(String name) throws InvalidoException, AtaqueInexistenteException {
+        if (name != null)
+        {
+            if (attackNegocios.exists(name))
+            {
+                return (Attack) attackNegocios.search(name);
+            }
+            else
+                throw new AtaqueInexistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    //HiddenMachine           "name type pp effect ousideeffect" - nota
+
+    public void cadastrarHiddenMachine(HiddenMachine hiddenMachine) throws InvalidoException, HiddenMachineExistenteException, TipoInvalidoException, HiddenMachinePPException, HiddenMachineEfeitoInvalidoException, HiddenMachineEfeitoExteriorInvalidoException {
+        if (hiddenMachine != null)
+        {
+            if (!hiddenMachineNegocios.exists(hiddenMachine.getName()))
+            {
+                if (type.exist(hiddenMachine.getType()))
+                {
+                    if (hiddenMachine.getPP() > 0)
+                    {
+                        if (!hiddenMachine.getEffect().equals(null))
+                        {
+                            if (!hiddenMachine.getOutEffect().equals(null))
+                            {
+                                hiddenMachineNegocios.insert(hiddenMachine);
+                            }
+                            else
+                                throw new HiddenMachineEfeitoExteriorInvalidoException();
+                        }
+                        else
+                            throw new HiddenMachineEfeitoInvalidoException();
+                    }
+                    else
+                        throw new HiddenMachinePPException();
+                }
+                else
+                    throw new TipoInvalidoException();
+            }
+            else
+                throw new  HiddenMachineExistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public void atualizarHiddenMachine(HiddenMachine hiddenMachine) throws InvalidoException, HiddenMachineExistenteException, TipoInvalidoException, HiddenMachinePPException, HiddenMachineEfeitoInvalidoException, HiddenMachineEfeitoExteriorInvalidoException {
+        if (hiddenMachine != null)
+        {
+            if (hiddenMachineNegocios.exists(hiddenMachine.getName()))
+            {
+                if (type.exist(hiddenMachine.getType()))
+                {
+                    if (hiddenMachine.getPP() > 0)
+                    {
+                        if (!hiddenMachine.getEffect().equals(null))
+                        {
+                            if (!hiddenMachine.getOutEffect().equals(null))
+                            {
+                                hiddenMachineNegocios.update(hiddenMachine);
+                            }
+                            else
+                                throw new HiddenMachineEfeitoExteriorInvalidoException();
+                        }
+                        else
+                            throw new HiddenMachineEfeitoInvalidoException();
+                    }
+                    else
+                        throw new HiddenMachinePPException();
+                }
+                else
+                    throw new TipoInvalidoException();
+            }
+            else
+                throw new  HiddenMachineExistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public void removerHiddenMachine(String name) throws InvalidoException, HiddenMachineInexistenteException {
+        if (name != null)
+        {
+            if (hiddenMachineNegocios.exists(name))
+            {
+                hiddenMachineNegocios.remove(name);
+            }
+            else
+                throw new HiddenMachineInexistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
+
+    public HiddenMachine procurarHiddenMachine(String name) throws InvalidoException, HiddenMachineInexistenteException {
+        if (name != null)
+        {
+            if (hiddenMachineNegocios.exists(name))
+            {
+                return (HiddenMachine) hiddenMachineNegocios.search(name);
+            }
+            else
+                throw new HiddenMachineInexistenteException();
+        }
+        else
+            throw new InvalidoException();
+    }
 }

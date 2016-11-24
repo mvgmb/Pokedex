@@ -10,8 +10,8 @@ public class Attack extends Move {
     private String name;
     private String type;
     private int pp;
-    private int damage;
     private String effect;
+    private int damage;
 
     public Attack() {
 

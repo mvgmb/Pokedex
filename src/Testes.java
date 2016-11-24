@@ -1,6 +1,6 @@
 import exceptions.*;
 import negocio.pokemon.Pokemon;
-
+import fachada.Fachada;
 /**
  * Created by mario on 23/11/16.
  */
@@ -15,7 +15,7 @@ public class Testes {
                 test.setArrayMoveID("ElectroBall");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
-            } catch (AttackInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
+            } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
                 e.printStackTrace();
             }
             // Sem ataque
@@ -23,7 +23,7 @@ public class Testes {
                 Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
-            } catch (AttackInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
+            } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
                 e.printStackTrace();
             }
             // Sem região
@@ -31,7 +31,7 @@ public class Testes {
                 Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
                 test.setArrayMoveID("ElectroBall");
                 fachada.cadastrarPokemon(test);
-            } catch (AttackInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
+            } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
                 e.printStackTrace();
             }
             // Pokemon existente
@@ -41,14 +41,14 @@ public class Testes {
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
                 fachada.cadastrarPokemon(test);
-            } catch (AttackInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
+            } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
                 e.printStackTrace();
             }
             // Pokemon null
             try {
                 Pokemon test = null;
                 fachada.cadastrarPokemon(test);
-            } catch (AttackInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
+            } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException e) {
                 e.printStackTrace();
             }
 

@@ -5,6 +5,6 @@ package exceptions;
  */
 public class PokemonIDHabilidadeInexistenteException extends Exception {
     public PokemonIDHabilidadeInexistenteException(){
-        super("O ID da habilidade do pokémon não foi constatado na entrada, favor modificá-lo antes de continar");
+        super("O ID da habilidade do Pokémon não foi constatado na entrada, favor modificá-lo antes de continar");
     }
 }
