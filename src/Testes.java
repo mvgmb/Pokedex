@@ -143,7 +143,7 @@ public class Testes
                 local.setCity("Pallet");
                 fachada.cadastrarLocal(local);
                 fachada.removerLocal("canto");
-            } catch (InvalidoException | LocalInexistenteException e){
+            } catch (InvalidoException | LocalInexistenteException | LocalCidadeInvalidaException | LocalRotaInvalidaException | LocalExistenteException e){
                 e.printStackTrace();
             }
 

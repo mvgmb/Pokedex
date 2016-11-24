@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class Fachada
 {
-    private static final Fachada ourInstance = new Fachada();
+    public static final Fachada ourInstance = new Fachada();
     public boolean repInvalido = false;
 
     private PokemonNegocios pokemonNegocios;

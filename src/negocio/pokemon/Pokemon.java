@@ -56,7 +56,6 @@ public class Pokemon {
         for (int i = 0; i < 4; i++)
             if (this.arrayMoveID[i] == null)
                 this.arrayMoveID[i] = moveID;
-
     }
 
     public boolean ExistsSpaceMove() {
