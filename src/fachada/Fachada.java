@@ -61,10 +61,10 @@ public class Fachada
 
     //Pokémon ----------------------
 
-    public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException,AttackInexistenteException,InvalidoException, PokemonExistenteException, TipoInvalidoException {
+    public void cadastrarPokemon(Pokemon pokemon) throws PokemonIDHabilidadeInexistenteException, PokemonNumberInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonExistenteException, TipoInvalidoException, PokemonNumberInvalidoException {
         if (pokemon != null)
         {
-                if (!pokemonNegocios.exist(pokemon))
+                if (!pokemonNegocios.exist(pokemon.getName()))
             {
                 if (pokemon.existNumber())
                 {
@@ -93,7 +93,7 @@ public class Fachada
                             throw new TipoInvalidoException();
                    }
                    else
-                       throw new PokemonNumberInvalidoException;
+                       throw new PokemonNumberInvalidoException();
                 }
                 else
                     throw new PokemonNumberInexistenteException();
@@ -105,10 +105,10 @@ public class Fachada
             throw new InvalidoException();
     }
 
-    public void atualizar(Pokemon pokemon) throws PokemonNumberInexistenteException, PokemonIDHabilidadeInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException {
+    public void atualizar(Pokemon pokemon) throws PokemonNumberInexistenteException, PokemonIDHabilidadeInexistenteException, LocalInexistenteException, AttackInexistenteException, InvalidoException, PokemonInexistenteException, TipoInvalidoException, PokemonExistenteException, PokemonNumberInvalidoException {
         if (pokemon != null)
         {
-            if (pokemonNegocios.exist(pokemon))
+            if (pokemonNegocios.exist(pokemon.getName()))
             {
                 if (pokemon.existNumber())
                 {
@@ -137,7 +137,7 @@ public class Fachada
                             throw new TipoInvalidoException();
                     }
                     else
-                        throw new PokemonNumberInvalidoException;
+                        throw new PokemonNumberInvalidoException();
                 }
                 else
                     throw new PokemonNumberInexistenteException();
