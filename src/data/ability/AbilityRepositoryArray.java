@@ -14,7 +14,7 @@ public class AbilityRepositoryArray implements AbilityRepository{
             }
         } return false;
     }
-    //Inseri uma nova habilidade no abilityArray
+    //Insere uma nova habilidade no abilityArray
     public void insert (Ability ability) {
         Ability [] array = new Ability[this.abilityArray.length + 1];
         for (int contador = 0; contador < this.abilityArray.length; contador ++) {

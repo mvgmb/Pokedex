@@ -10,20 +10,20 @@ public abstract class Move {
     private String effect;
     private String type;
 
-    public abstract void setName(String name);
+    protected abstract void setName(String name);
 
-    public abstract String getName();
+    protected abstract String getName();
 
-    public abstract void setPP(String pp);
+    protected abstract void setPP(String pp);
 
-    public abstract String getPP();
+    protected abstract String getPP();
 
-    public abstract void setEffect(String effect);
+    protected abstract void setEffect(String effect);
 
-    public abstract String getEffect();
+    protected abstract String getEffect();
 
-    public abstract void setType(String type);
+    protected abstract void setType(String type);
 
-    public abstract String getType();
+    protected abstract String getType();
 
 }

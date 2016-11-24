@@ -20,7 +20,7 @@ public class Programa
         Scanner in = new Scanner(System.in);
         Fachada fachada = new Fachada();
 
-        System.out.println("Bem vindo ao PC/Pokedex do Professor Caralho.\nMe diga seu nome e a quantidade de insignias que voce já conquistou.");
+        System.out.println("Bem vindo ao PC/Pokedex do Professor Carvalho.\nMe diga seu nome e a quantidade de insignias que voce já conquistou.");
         boolean exito = true;
         do {
             Trainer treinador = new Trainer(in.nextLine(), in.nextInt());
