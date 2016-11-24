@@ -249,10 +249,15 @@ public class Fachada
         else throw new InvalidoException();
     }
 
-    public Trainer[] retonarConteudoTreinador() throws InvalidoException{
+    public Trainer[] retonarConteudoTreinador() throws InvalidoException, TreinadorNenhumTreinadorCadastradoException {
         if (trainerNegocios.returnContent() != null)
         {
-            if ()
+            if (trainerNegocios.returnContent().length == 0)
+            {
+                return trainerNegocios.returnContent();
+            }
+            else
+                throw new TreinadorNenhumTreinadorCadastradoException();
         }
         else
             throw new InvalidoException();
