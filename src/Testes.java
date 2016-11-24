@@ -2,6 +2,8 @@ import exceptions.*;
 import negocio.pokemon.Pokemon;
 import fachada.Fachada;
 import negocio.local.Local;
+import negocio.trainer.Trainer;
+import negocio.ability.Ability;
 
 /**
  * Created by mario on 23/11/16.
@@ -62,7 +64,6 @@ public class Testes
             //Move nulo
             try {
                 Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
-                test.setArrayMoveID("");
                 test.setArrayLocalID("Kanto");
                 fachada.cadastrarPokemon(test);
             } catch (AtaqueInexistenteException | TipoInvalidoException | LocalInexistenteException | PokemonExistenteException | InvalidoException | PokemonNumberInexistenteException | PokemonIDHabilidadeInexistenteException | PokemonNumberInvalidoException e) {
@@ -72,7 +73,6 @@ public class Testes
             try {
                 Pokemon test = new Pokemon(123, "Pikachu", "Eletrico", "Static");
                 test.setArrayMoveID("ElectroBall");
-                test.setArrayLocalID("");
                 fachada.cadastrarPokemon(test);
             } catch (PokemonIDHabilidadeInexistenteException | PokemonNumberInexistenteException | LocalInexistenteException | AtaqueInexistenteException | InvalidoException | PokemonExistenteException | TipoInvalidoException | PokemonNumberInvalidoException e) {
                 e.printStackTrace();
@@ -102,9 +102,7 @@ public class Testes
             }
 
             //LOCAL>>
-
             //CADASTRAR
-
             //Local existente
             try {
                 Local local = new Local();
@@ -117,25 +115,132 @@ public class Testes
                 e.printStackTrace();
             }
 
-            //Local nulo
+            //Local com rota inválida
             try {
                 Local local = new Local();
-                local.setRoute(0);
-                local.setName(null);
-                local.setCity(null);
+                local.setName("area");
+                local.setRoute(-3);
+                Local.setCity("Pallet");
+                fachada.cadastrarLocal(local);
+            } catch (LocalCidadeInvalidaException | LocalRotaInvalidaException | LocalInexistenteException | LocalExistenteException e) {
+                e.printStackTrace();
+            }
+
+            //Local nulo
+            try {
+                Local local = null;
                 fachada.cadastrarLocal(local);
             } catch (InvalidoException | LocalInexistenteException | LocalRotaInvalidaException | LocalCidadeInvalidaException | LocalExistenteException e){
                 e.printStackTrace();
             }
 
-            //Local sem nome
+            //REMOVER
+            //Local inexistente
             try {
                 Local local = new Local();
-                local.setName
+                local.setName("area");
+                local.setRoute(12);
+                local.setCity("Pallet");
+                fachada.cadastrarLocal(local);
+                fachada.removerLocal("canto");
+            } catch (InvalidoException | LocalInexistenteException e){
+                e.printStackTrace();
+            }
+
+            //PROCURAR
+            //Local inexistente
+            try {
+                Local local = new Local();
+                local.setName("area");
+                local.setRoute(12);
+                local.setCity("Pallet");
+                fachada.removerLocal("canto");
+            } catch (InvalidoException | LocalInexistenteException e){
+                e.printStackTrace();
             }
 
 
-        }
+            //<<TRAINER>>
+            //CADASTRAR
+            //Treinador já existente
+            try {
+                Trainer trainer = new Trainer("teacher", 5);
+                fachada.cadastrarTreinador(trainer);
+                fachada.cadastrarTreinador(trainer);
+            } catch (TrainerBadgeInvalidoException | TrainerExistenteException e) {
+                e.printStackTrace();
+            }
 
+            //Treinador nulo
+            try {
+                Trainer trainer = null;
+                fachada.cadastrarTreinador(trainer);
+            } catch (TrainerBadgeInvalidoException | TrainerExistenteException e) {
+                e.printStackTrace();
+            }
+
+            //Número de badges inválido
+            try {
+                Trainer trainer = new Trainer("teacher", -3);
+                fachada.cadastrarTreinador(trainer);
+            } catch (TrainerBadgeInvalidoException | TrainerExistenteException e) {
+                e.printStackTrace();
+            }
+
+        }
+            //REMOVER
+            //Treinador inexistente
+            try {
+                Trainer trainer = new Trainer ("teacher", 5);
+                fachada.removerTreinador("mario");
+            } catch (TrainerInexistenteException e) {
+                e.printStackTrace();
+            }
+
+            //PROCURAR
+            //Treinador inexistente
+            try {
+                Trainer trainer = new Trainer ("teacher", 5);
+                fachada.procurarTreinador("mario");
+            } catch (TrainerInexistenteException e) {
+                e.printStackTrace();
+            }
+
+            //<<ABILITY>>
+            //CADASTRAR
+            //Habilidade já existente
+            try {
+                Ability ability = new Ability ("Fly", "voa");
+                fachada.cadastrarHabilidade(ability);
+                fachada.cadastrarHabilidade(ability);
+            } catch (HabilidadeDescricaoInexistenteException | HabilidadeExistenteException e) {
+                e.printStackTrace();
+            }
+
+            //Habilidade nula
+            try {
+                Ability ability = null;
+                fachada.cadastrarHabilidade(ability);
+            } catch (HabilidadeDescricaoInexistenteException | HabilidadeExistenteException e) {
+                e.printStackTrace();
+            }
+
+            //REMOVER
+            //Remover habilidade inexistente
+            try {
+                Ability ability = new Ability("Fly", "voa");
+                fachada.removerHabilidade("Run");
+            } catch (HabilidadeInexistenteException e) {
+                e.printStackTrace();
+            }
+
+            //PROCURAR
+            //Procurar habilidade inexistente
+            try{
+                Ability ability = new Ability("Fly","voa");
+                fachada.procurarHabilidade("Run");
+            } catch (HabilidadeInexistenteException e) {
+                e.printStackTrace();
+            }
     }
 }
